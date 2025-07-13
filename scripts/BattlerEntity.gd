@@ -1,30 +1,36 @@
-class_name Monster
-extends BattlerEntity
+class_name BattlerEntity
+extends Node2D
 
-@export var monster_stats: MonsterStats
+@onready var game = get_node("/root/Game") as Game
+@onready var health_bar = $HealthBar as ProgressBar
+@onready var sprite = $Sprite2D as Sprite2D
 
-func _ready():
-	health_bar.max_value = monster_stats.max_health
-	super._ready()
+var battler_entity_id := ""
 
-func get_full_name():
-	return monster_stats.monster_name
+func _ready() -> void:
+	health_bar.value = health_bar.max_value
+	toggle_highlight(false)
 
 func get_curr_health():
 	return health_bar.value
 
+func init_healthbar():
+	pass
+
 func get_attack():
-	return monster_stats.attack
+	return 0
 
 func get_defense():
-	return monster_stats.defense
+	return 0
 
 func take_damage(damage):
 	var label = Label.new()
 	label.text = "-" + str(damage)
 	label.add_theme_font_size_override("font_size", 20)
+	label.z_index = 100
 	game.add_child(label)
 	label.global_position = Vector2(sprite.global_position.x, sprite.global_position.y)
+	print(label.global_position)
 	var on_tween_finished = func _on_tween_finished():
 		label.queue_free()
 	var tween = create_tween()
@@ -32,3 +38,11 @@ func take_damage(damage):
 	tween.tween_property(label, "global_position:y", final_y_pos, 0.75)
 	tween.finished.connect(on_tween_finished)
 	health_bar.value -= damage
+
+func get_full_name():
+	return ""
+
+func toggle_highlight(toggle_state: bool):
+	var _material = sprite.material as ShaderMaterial
+	_material.set_shader_parameter('width', 0 if !toggle_state else 1)
+

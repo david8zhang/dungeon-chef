@@ -1,7 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbt5umkiwa58b"]
+[gd_scene load_steps=7 format=3 uid="uid://dbt5umkiwa58b"]
 
 [ext_resource type="Script" uid="uid://c23kjdoxydx6y" path="res://scripts/Monster.gd" id="1_pm3gl"]
+[ext_resource type="Shader" uid="uid://cng6mfaklfn5n" path="res://shaders/Outline.gdshader" id="2_awos4"]
 [ext_resource type="Texture2D" uid="uid://byfqqajwop66o" path="res://assets/placeholder_monster.png" id="2_hwwdv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4f5rj"]
+shader = ExtResource("2_awos4")
+shader_parameter/color = Color(0, 1, 0, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwwdv"]
 bg_color = Color(0, 0, 0, 1)
@@ -13,6 +22,7 @@ bg_color = Color(1, 0, 0, 1)
 script = ExtResource("1_pm3gl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_4f5rj")
 scale = Vector2(3, 3)
 texture = ExtResource("2_hwwdv")
 

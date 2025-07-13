@@ -1,7 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt6cdsvlbltyw"]
+[gd_scene load_steps=7 format=3 uid="uid://dt6cdsvlbltyw"]
 
+[ext_resource type="Shader" uid="uid://cng6mfaklfn5n" path="res://shaders/Outline.gdshader" id="1_ak70d"]
 [ext_resource type="Script" uid="uid://ctgwxkitilfef" path="res://scripts/PartyMember.gd" id="1_kwrly"]
 [ext_resource type="Texture2D" uid="uid://p6nd0m8lxdyo" path="res://assets/placeholder_pm.png" id="2_oqhkj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ak70d"]
+resource_local_to_scene = true
+shader = ExtResource("1_ak70d")
+shader_parameter/color = Color(0, 1, 0, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqhkj"]
 bg_color = Color(0, 0, 0, 1)
@@ -13,6 +23,7 @@ bg_color = Color(1, 0, 0, 1)
 script = ExtResource("1_kwrly")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ak70d")
 scale = Vector2(3, 3)
 texture = ExtResource("2_oqhkj")
 
