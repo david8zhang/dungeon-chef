@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PartyMemberStats" load_steps=2 format=3 uid="uid://vovbj065dvu2"]
+
+[ext_resource type="Script" uid="uid://buhl7xr8v0j7q" path="res://scripts/PartyMemberStats.gd" id="1_3ii74"]
+
+[resource]
+script = ExtResource("1_3ii74")
+pm_name = "Archer"
+max_health = 75
+attack = 9
+defense = 4
+pm_type = 2
+metadata/_custom_type_script = "uid://buhl7xr8v0j7q"

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbt5umkiwa58b"]
+
+[ext_resource type="Script" uid="uid://c23kjdoxydx6y" path="res://scripts/Monster.gd" id="1_pm3gl"]
+[ext_resource type="Texture2D" uid="uid://byfqqajwop66o" path="res://assets/placeholder_monster.png" id="2_hwwdv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hwwdv"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_awos4"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="Monster" type="Node2D"]
+script = ExtResource("1_pm3gl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_hwwdv")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = 36.0
+offset_right = 31.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_hwwdv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_awos4")
+value = 60.0
+show_percentage = false

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dx14jx5jluo53"]
+
+[ext_resource type="Script" uid="uid://cie7itn402tyb" path="res://scripts/Game.gd" id="1_elqb8"]
+[ext_resource type="PackedScene" uid="uid://dbt5umkiwa58b" path="res://prefabs/Monster.tscn" id="2_c01mt"]
+[ext_resource type="PackedScene" uid="uid://dt6cdsvlbltyw" path="res://prefabs/PartyMember.tscn" id="2_rvslj"]
+[ext_resource type="Resource" uid="uid://p7hgpcdix278" path="res://resources/party_members/Knight.tres" id="3_0bbpv"]
+[ext_resource type="Resource" uid="uid://vovbj065dvu2" path="res://resources/party_members/Archer.tres" id="4_rarhs"]
+[ext_resource type="Resource" uid="uid://iiefjsm62vfo" path="res://resources/party_members/Mage.tres" id="5_vcsgt"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_elqb8")
+monster_scene = ExtResource("2_c01mt")
+
+[node name="PlayerParty" type="Node" parent="."]
+
+[node name="Knight" parent="PlayerParty" instance=ExtResource("2_rvslj")]
+position = Vector2(100, 100)
+party_member_stats = ExtResource("3_0bbpv")
+
+[node name="Archer" parent="PlayerParty" instance=ExtResource("2_rvslj")]
+position = Vector2(100, 225)
+party_member_stats = ExtResource("4_rarhs")
+
+[node name="Mage" parent="PlayerParty" instance=ExtResource("2_rvslj")]
+position = Vector2(100, 350)
+party_member_stats = ExtResource("5_vcsgt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.5
+offset_right = 56.5
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "Process turns"
