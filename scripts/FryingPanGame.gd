@@ -48,6 +48,7 @@ func remove_item_from_inventory(item):
 	ingredients_inventory.init_items(inventory_config)
 
 func start_game():
+	ingredients_inventory.hide()
 	start_button.hide()
 	view_ingredients_button.hide()
 	title.show()

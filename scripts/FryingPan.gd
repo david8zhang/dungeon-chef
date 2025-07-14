@@ -1,9 +1,9 @@
 class_name FryingPan
 extends Node2D
 
-@onready var ingredient_1 = $PanIngredient
-@onready var ingredient_2 = $PanIngredient2
-@onready var ingredient_3 = $PanIngredient3
+@onready var ingredient_1 = $PanIngredient as PanIngredient
+@onready var ingredient_2 = $PanIngredient2 as PanIngredient
+@onready var ingredient_3 = $PanIngredient3 as PanIngredient
 @onready var ingredients = [ingredient_1, ingredient_2, ingredient_3]
 
 func _ready() -> void:
@@ -21,4 +21,4 @@ func add_item(item: InventoryItem):
 func begin_minigame():
 	var ingredients_in_pan = ingredients.filter(func (ing): return ing.visible)
 	for ing in ingredients_in_pan:
-		pass
+		ing.begin_cooking()
