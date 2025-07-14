@@ -41,6 +41,8 @@ func init_turn_order():
 
 func process_turn():
 	process_turn_button.hide()
+	if is_game_over():
+		get_tree().change_scene_to_file("res://scenes/Cooking.tscn")
 	if turn_order.is_empty():
 		process_turn_button.show()
 		init_turn_order()
@@ -52,12 +54,12 @@ func process_turn():
 	var on_tween_finished = func _on_tween_finished():
 		var reset_tween = create_tween()
 		reset_tween.tween_property(curr_attacker, "scale", Vector2(1, 1), 0.5)
-		handle_attack(curr_attacker)
+		handle_action(curr_attacker)
 	var tween = create_tween()
 	tween.tween_property(curr_attacker, "scale", Vector2(1.5, 1.5), 0.5)
 	tween.finished.connect(on_tween_finished)
 
-func handle_attack(attacker):
+func handle_action(attacker):
 	var side = get_side(attacker)
 	if side == Side.PLAYER:
 		var pm = attacker as BattlerEntity
@@ -67,8 +69,14 @@ func handle_attack(attacker):
 		var monster = attacker as BattlerEntity
 		var party_members = get_player_party_members()
 		var target = party_members.pick_random()
-		var damage = calculate_damage(monster.get_attack(), target.get_defense())
-		target.take_damage(damage)
+		handle_attack(monster, target)
+
+func handle_attack(attacker: BattlerEntity, defender: BattlerEntity):
+	var damage = calculate_damage(attacker.get_attack(), defender.get_defense())
+	defender.take_damage(damage)
+	if defender.is_dead():
+		defender.play_death_anim(go_to_next_turn)
+	else:
 		go_to_next_turn()
 
 func calculate_damage(attack: int, defense: int):
@@ -81,6 +89,7 @@ func get_attacker_for_id(attacker_id: String):
 	return attacker
 
 func go_to_next_turn(delay: float = 0.5):
+	curr_attacker.toggle_highlight(false)
 	turn_delay_timer = Timer.new()
 	turn_delay_timer.autostart = true
 	turn_delay_timer.one_shot = true
@@ -88,23 +97,24 @@ func go_to_next_turn(delay: float = 0.5):
 	turn_delay_timer.timeout.connect(process_turn)
 	add_child(turn_delay_timer)
 
-func select_dish(dish: Dish):
-	dish.apply_affects(curr_attacker)
+func select_dish(dish_item: DishItem):
 	dish_selector.hide()
 	var party_member = curr_attacker as PartyMember
-	monsters.sort_custom(func (a, b): return a.get_curr_health() - b.get_curr_health())
-	var lowest_hp_monster = monsters[0] as Monster
-	var damage = calculate_damage(party_member.get_attack(), lowest_hp_monster.get_defense())
-	lowest_hp_monster.take_damage(damage)
-	party_member.toggle_highlight(false)
-	go_to_next_turn()
+	var targetable_monsters = get_monsters()
+	targetable_monsters.sort_custom(func (a, b): return a.get_curr_health() - b.get_curr_health())
+	var lowest_hp_monster = targetable_monsters[0] as Monster
+	handle_attack(party_member, lowest_hp_monster)
 
 func get_player_party_members():
 	var party_members = []
 	for node in player_party.get_children():
 		var pm = node as PartyMember
-		party_members.append(pm)
+		if is_instance_valid(pm):
+			party_members.append(pm)
 	return party_members
+
+func get_monsters():
+	return monsters.filter(func(m): return is_instance_valid(m))
 
 func get_party_member_for_id(id: String):
 	for pm in get_player_party_members():
@@ -113,7 +123,7 @@ func get_party_member_for_id(id: String):
 	return null
 
 func get_monster_for_id(id: String):
-	for monster in monsters:
+	for monster in get_monsters():
 		if monster.battler_entity_id == id:
 			return monster
 	return null
@@ -123,3 +133,8 @@ func get_side(attacker):
 		return Side.MONSTER
 	elif get_player_party_members().has(attacker):
 		return Side.PLAYER
+
+func is_game_over():
+	var living_party_members = get_player_party_members()
+	var living_monsters = get_monsters()
+	return living_party_members.is_empty() or living_monsters.is_empty()

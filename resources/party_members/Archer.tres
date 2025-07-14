@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_3ii74")
 pm_name = "Archer"
-max_health = 75
-attack = 9
+max_health = 15
+attack = 10
 defense = 4
 pm_type = 2
 metadata/_custom_type_script = "uid://buhl7xr8v0j7q"

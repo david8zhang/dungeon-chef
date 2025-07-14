@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dce1cvgbs2r0s"]
+
+[ext_resource type="Script" uid="uid://dlyu2c31bcp7p" path="res://scripts/FryingPan.gd" id="1_o07a2"]
+[ext_resource type="Texture2D" uid="uid://dikervpjgo8ke" path="res://assets/placeholder_frying_pan.png" id="2_y2pqn"]
+[ext_resource type="PackedScene" uid="uid://dm31a6ttjsdms" path="res://prefabs/PanIngredient.tscn" id="3_jaycd"]
+
+[node name="FryingPan" type="Node2D"]
+script = ExtResource("1_o07a2")
+
+[node name="FryingPanSprite" type="Sprite2D" parent="."]
+position = Vector2(0, 4)
+scale = Vector2(1, 0.695312)
+texture = ExtResource("2_y2pqn")
+
+[node name="PanIngredient" parent="." instance=ExtResource("3_jaycd")]
+position = Vector2(-157, -2)
+
+[node name="PanIngredient2" parent="." instance=ExtResource("3_jaycd")]
+position = Vector2(-4, 0)
+
+[node name="PanIngredient3" parent="." instance=ExtResource("3_jaycd")]
+position = Vector2(153, 3)

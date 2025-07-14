@@ -16,3 +16,6 @@ func get_attack():
 
 func get_defense():
 	return party_member_stats.defense
+
+func get_full_name():
+	return party_member_stats.pm_name

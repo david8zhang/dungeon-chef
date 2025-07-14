@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cokqn8nc5l2gj"]
 
 [ext_resource type="Script" uid="uid://ckve72cdowenl" path="res://scripts/DishSelector.gd" id="1_nrx8j"]
-[ext_resource type="PackedScene" uid="uid://xlmyyax8n246" path="res://prefabs/Dish.tscn" id="2_s7qus"]
+[ext_resource type="PackedScene" uid="uid://xlmyyax8n246" path="res://prefabs/InventoryRow.tscn" id="2_s7qus"]
 
 [node name="DishSelector" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 150)
@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 script = ExtResource("1_nrx8j")
-dish_scene = ExtResource("2_s7qus")
+inventory_row_scene = ExtResource("2_s7qus")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

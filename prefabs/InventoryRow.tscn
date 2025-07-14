@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://xlmyyax8n246"]
 
-[ext_resource type="Texture2D" uid="uid://dgd3ndax07v87" path="res://assets/placeholder_dish.png" id="1_3mm1c"]
-[ext_resource type="Script" uid="uid://buvdp8ywvd2jd" path="res://scripts/Dish.gd" id="1_rl8ja"]
+[ext_resource type="Texture2D" uid="uid://dgd3ndax07v87" path="res://assets/placeholder_dish.png" id="1_0ijn3"]
+[ext_resource type="Script" uid="uid://d3gddyw0jlrsj" path="res://scripts/InventoryRow.gd" id="1_pxgnl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0lyg"]
 bg_color = Color(0.109804, 0.109804, 0.109804, 0.376471)
 
-[node name="Dish" type="PanelContainer"]
+[node name="InventoryRow" type="PanelContainer"]
 custom_minimum_size = Vector2(200, 0)
 anchors_preset = 8
 anchor_left = 0.5
@@ -20,7 +20,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u0lyg")
-script = ExtResource("1_rl8ja")
+script = ExtResource("1_pxgnl")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -38,7 +38,7 @@ alignment = 1
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture = ExtResource("1_3mm1c")
+texture = ExtResource("1_0ijn3")
 expand_mode = 2
 stretch_mode = 4
 
@@ -48,6 +48,7 @@ theme_override_constants/separation = 5
 
 [node name="DishName" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Dish name"
 
 [node name="StatLabel1" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
@@ -59,6 +60,20 @@ text = "+10 Health Regen"
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "+10 Health Regen"
+
+[node name="StatLabel3" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "+10 Health Regen"
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Quantity" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "3"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2

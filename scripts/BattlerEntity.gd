@@ -35,7 +35,7 @@ func take_damage(damage):
 		label.queue_free()
 	var tween = create_tween()
 	var final_y_pos = label.global_position.y - 40
-	tween.tween_property(label, "global_position:y", final_y_pos, 0.75)
+	tween.tween_property(label, "global_position:y", final_y_pos, 0.5)
 	tween.finished.connect(on_tween_finished)
 	health_bar.value -= damage
 
@@ -46,3 +46,14 @@ func toggle_highlight(toggle_state: bool):
 	var _material = sprite.material as ShaderMaterial
 	_material.set_shader_parameter('width', 0 if !toggle_state else 1)
 
+func is_dead():
+	return get_curr_health() == 0
+
+func play_death_anim(cb: Callable):
+	var on_tween_finished = func _on_tween_finished():
+		queue_free()
+		cb.call()
+	var tween = create_tween()
+	sprite.material = null
+	tween.tween_property(sprite, "modulate:a", 0, 0.75)
+	tween.finished.connect(on_tween_finished)
