@@ -1,19 +1,18 @@
-class_name FryingPanGame
+class_name BoilingGame
 extends Control
 
 @onready var ingredients_inventory = $Inventory
 @onready var view_ingredients_button = $ViewIngredients
-@onready var frying_pan = $FryingPan as FryingPan
 @onready var start_button = $StartButton as Button
 @onready var title = $Title as Label
 @onready var subtitle = $Subtitle as Label
-@onready var frying_pan_game_result = $FryingPanGameResult as FryingPanGameResult
+@onready var boiling_pot = $BoilingPot as BoilingPot
 
 var inventory_config = []
 
 func _ready() -> void:
 	ingredients_inventory.hide()
-	ingredients_inventory.on_item_selected.connect(add_item_to_pan)
+	ingredients_inventory.on_item_selected.connect(add_item_to_pot)
 	view_ingredients_button.pressed.connect(show_ingredients_list)
 	ingredients_inventory.on_close.connect(hide_ingredients_list)
 	for i in range(0, 3):
@@ -24,7 +23,6 @@ func _ready() -> void:
 	ingredients_inventory.init_items(inventory_config)
 	start_button.pressed.connect(start_game)
 	start_button.hide()
-	frying_pan_game_result.hide()
 
 func show_ingredients_list():
 	ingredients_inventory.show()
@@ -34,13 +32,21 @@ func hide_ingredients_list():
 	ingredients_inventory.hide()
 	view_ingredients_button.show()
 
-func add_item_to_pan(item: IngredientItem):
-	if frying_pan.can_add_item():
+func start_game():
+	ingredients_inventory.hide()
+	start_button.hide()
+	view_ingredients_button.hide()
+	title.show()
+	subtitle.show()
+	boiling_pot.begin_minigame()
+
+func add_item_to_pot(item: IngredientItem):
+	if boiling_pot.can_add_item():
 		start_button.show()
 		var single_item = IngredientItem.new()
 		single_item.copy_from_item(item)
 		single_item.quantity = 1
-		frying_pan.add_item(single_item)
+		boiling_pot.add_item(single_item)
 		remove_item_from_inventory(item)
 
 func remove_item_from_inventory(item):
@@ -52,15 +58,3 @@ func remove_item_from_inventory(item):
 				inventory_config.remove_at(idx)
 		idx += 1
 	ingredients_inventory.init_items(inventory_config)
-
-func start_game():
-	ingredients_inventory.hide()
-	start_button.hide()
-	view_ingredients_button.hide()
-	title.show()
-	subtitle.show()
-	frying_pan.begin_minigame()
-
-func end_game(cooked_ingredient_items):
-	frying_pan_game_result.show()
-	frying_pan_game_result.init_result(cooked_ingredient_items)

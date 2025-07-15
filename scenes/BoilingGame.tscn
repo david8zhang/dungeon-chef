@@ -1,21 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://banhbjenbn2hh"]
+[gd_scene load_steps=4 format=3 uid="uid://24olpuur4xk3"]
 
-[ext_resource type="Script" uid="uid://u3suiuf2sqjq" path="res://scripts/FryingPanGame.gd" id="1_4cprh"]
-[ext_resource type="PackedScene" uid="uid://dce1cvgbs2r0s" path="res://prefabs/FryingPan.tscn" id="2_4cprh"]
-[ext_resource type="PackedScene" uid="uid://cvct50b2wta71" path="res://prefabs/inventory.tscn" id="2_bb1ph"]
-[ext_resource type="PackedScene" uid="uid://c3nq5qofkdbuc" path="res://prefabs/FryingPanGameResult.tscn" id="2_y8klm"]
+[ext_resource type="Script" uid="uid://chi32da3puvgl" path="res://scripts/BoilingGame.gd" id="1_u1vtd"]
+[ext_resource type="PackedScene" uid="uid://cvct50b2wta71" path="res://prefabs/inventory.tscn" id="1_vldwm"]
+[ext_resource type="PackedScene" uid="uid://dbwh0kdfxyriq" path="res://prefabs/BoilingPot.tscn" id="3_fq58d"]
 
-[node name="FryingPanGame" type="Control"]
+[node name="BoilingGame" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4cprh")
-
-[node name="FryingPan" parent="." instance=ExtResource("2_4cprh")]
-position = Vector2(576, 324)
+script = ExtResource("1_u1vtd")
 
 [node name="Title" type="Label" parent="."]
 visible = false
@@ -28,7 +24,7 @@ offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
-text = "Flip at the right moment!"
+text = "Keep temperature steady!"
 
 [node name="Subtitle" type="Label" parent="."]
 visible = false
@@ -42,9 +38,9 @@ offset_right = 55.0
 offset_bottom = 78.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 20
-text = "Click to Flip"
+text = "Hold Space to increase temperature, release to decrease temperature"
 
-[node name="Inventory" parent="." instance=ExtResource("2_bb1ph")]
+[node name="Inventory" parent="." instance=ExtResource("1_vldwm")]
 visible = false
 layout_mode = 1
 anchors_preset = 4
@@ -71,6 +67,5 @@ offset_bottom = 31.0
 grow_horizontal = 2
 text = "Start"
 
-[node name="FryingPanGameResult" parent="." instance=ExtResource("2_y8klm")]
-visible = false
-layout_mode = 1
+[node name="BoilingPot" parent="." instance=ExtResource("3_fq58d")]
+position = Vector2(576, 285)

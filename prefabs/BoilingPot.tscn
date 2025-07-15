@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbwh0kdfxyriq"]
+
+[ext_resource type="PackedScene" uid="uid://b0ikf37qjkdpl" path="res://prefabs/TemperatureBar.tscn" id="1_o5y21"]
+[ext_resource type="Script" uid="uid://jbet0euy84u0" path="res://scripts/BoilingPot.gd" id="1_qr5qw"]
+[ext_resource type="Texture2D" uid="uid://c7gqk6i0pvsmr" path="res://assets/placeholder_ingredient.png" id="2_gp6cl"]
+
+[node name="BoilingPot" type="Node2D"]
+script = ExtResource("1_qr5qw")
+
+[node name="PotIngredient" type="Sprite2D" parent="."]
+position = Vector2(-68, 95)
+scale = Vector2(6, 6)
+texture = ExtResource("2_gp6cl")
+
+[node name="PotIngredient2" type="Sprite2D" parent="."]
+position = Vector2(72, 98)
+scale = Vector2(6, 6)
+texture = ExtResource("2_gp6cl")
+
+[node name="PotIngredient3" type="Sprite2D" parent="."]
+position = Vector2(6, 9)
+scale = Vector2(6, 6)
+texture = ExtResource("2_gp6cl")
+
+[node name="TemperatureBar" parent="." instance=ExtResource("1_o5y21")]
+position = Vector2(-200, 250)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -165.0
+offset_right = 150.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0430392, 0.0430391, 0.0430392, 0.588235)

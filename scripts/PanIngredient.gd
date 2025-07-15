@@ -3,9 +3,12 @@ extends Node2D
 
 @onready var button = $Sprite2D/Button as Button
 @onready var sprite = $Sprite2D as Sprite2D
+var ingredient_item: IngredientItem
 var did_flip = false
 var burn_tween: Tween
 var cook_tween: Tween
+
+signal on_cooked(pan_ingredient)
 
 func _ready():
 	button.pressed.connect(on_flip)
@@ -15,6 +18,7 @@ func on_flip():
 		did_flip = true
 		cook_other_side()
 	else:
+		on_cooked.emit(self)
 		hide()
 
 func begin_cooking():

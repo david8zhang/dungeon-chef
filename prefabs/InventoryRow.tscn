@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://xlmyyax8n246"]
 
-[ext_resource type="Texture2D" uid="uid://dgd3ndax07v87" path="res://assets/placeholder_dish.png" id="1_0ijn3"]
 [ext_resource type="Script" uid="uid://d3gddyw0jlrsj" path="res://scripts/InventoryRow.gd" id="1_pxgnl"]
+[ext_resource type="Texture2D" uid="uid://c7gqk6i0pvsmr" path="res://assets/placeholder_ingredient.png" id="2_pxgnl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0lyg"]
 bg_color = Color(0.109804, 0.109804, 0.109804, 0.376471)
@@ -38,7 +38,7 @@ alignment = 1
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-texture = ExtResource("1_0ijn3")
+texture = ExtResource("2_pxgnl")
 expand_mode = 2
 stretch_mode = 4
 
@@ -46,7 +46,7 @@ stretch_mode = 4
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="DishName" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="ItemName" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Dish name"

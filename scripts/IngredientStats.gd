@@ -14,15 +14,8 @@ enum EffectType {
 	DEFENSE
 }
 
-enum EffectDurationType {
-	OVER_TIME,
-	INSTANT
-}
-
 @export var ingredient_type: IngredientType
+@export var ingredient_name: String = ""
 @export var texture: Texture
-@export var name: String = ""
 @export var effect_type: EffectType
-@export var effect_duration_type: EffectDurationType
 @export var effect_amount_base := 0
-@export var effect_duration_base := 0 # If it's an instant effect the duration will always be 1
