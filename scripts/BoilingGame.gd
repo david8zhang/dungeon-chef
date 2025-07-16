@@ -7,6 +7,8 @@ extends Control
 @onready var title = $Title as Label
 @onready var subtitle = $Subtitle as Label
 @onready var boiling_pot = $BoilingPot as BoilingPot
+@onready var game_result = $GameResult as GameResult
+@onready var countdown = $Countdown as Countdown
 
 var inventory_config = []
 
@@ -23,6 +25,9 @@ func _ready() -> void:
 	ingredients_inventory.init_items(inventory_config)
 	start_button.pressed.connect(start_game)
 	start_button.hide()
+	countdown.hide()
+	countdown.on_complete.connect(start_game_after_cd)
+	game_result.on_continue.connect(go_to_cooking_scene)
 
 func show_ingredients_list():
 	ingredients_inventory.show()
@@ -36,6 +41,10 @@ func start_game():
 	ingredients_inventory.hide()
 	start_button.hide()
 	view_ingredients_button.hide()
+	countdown.start()
+
+func start_game_after_cd():
+	countdown.hide()
 	title.show()
 	subtitle.show()
 	boiling_pot.begin_minigame()
@@ -58,3 +67,10 @@ func remove_item_from_inventory(item):
 				inventory_config.remove_at(idx)
 		idx += 1
 	ingredients_inventory.init_items(inventory_config)
+
+func end_game(cooked_ingredient_items):
+	game_result.show()
+	game_result.init_result(cooked_ingredient_items)
+
+func go_to_cooking_scene():
+	get_tree().change_scene_to_file("res://scenes/Cooking.tscn")

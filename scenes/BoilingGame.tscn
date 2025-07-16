@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://24olpuur4xk3"]
+[gd_scene load_steps=6 format=3 uid="uid://24olpuur4xk3"]
 
 [ext_resource type="Script" uid="uid://chi32da3puvgl" path="res://scripts/BoilingGame.gd" id="1_u1vtd"]
 [ext_resource type="PackedScene" uid="uid://cvct50b2wta71" path="res://prefabs/inventory.tscn" id="1_vldwm"]
 [ext_resource type="PackedScene" uid="uid://dbwh0kdfxyriq" path="res://prefabs/BoilingPot.tscn" id="3_fq58d"]
+[ext_resource type="PackedScene" uid="uid://chy7upl30otxo" path="res://prefabs/GameResult.tscn" id="4_1bt8b"]
+[ext_resource type="PackedScene" uid="uid://c5xv1lgcblkbs" path="res://prefabs/Countdown.tscn" id="5_kwa6b"]
 
 [node name="BoilingGame" type="Control"]
 layout_mode = 3
@@ -69,3 +71,10 @@ text = "Start"
 
 [node name="BoilingPot" parent="." instance=ExtResource("3_fq58d")]
 position = Vector2(576, 285)
+
+[node name="GameResult" parent="." instance=ExtResource("4_1bt8b")]
+visible = false
+layout_mode = 1
+
+[node name="Countdown" parent="." instance=ExtResource("5_kwa6b")]
+layout_mode = 1

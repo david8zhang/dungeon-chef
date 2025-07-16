@@ -7,7 +7,7 @@ extends Control
 @onready var start_button = $StartButton as Button
 @onready var title = $Title as Label
 @onready var subtitle = $Subtitle as Label
-@onready var frying_pan_game_result = $FryingPanGameResult as FryingPanGameResult
+@onready var game_result = $GameResult as GameResult
 
 var inventory_config = []
 
@@ -24,7 +24,8 @@ func _ready() -> void:
 	ingredients_inventory.init_items(inventory_config)
 	start_button.pressed.connect(start_game)
 	start_button.hide()
-	frying_pan_game_result.hide()
+	game_result.hide()
+	game_result.on_continue.connect(go_to_cooking_scene)
 
 func show_ingredients_list():
 	ingredients_inventory.show()
@@ -62,5 +63,8 @@ func start_game():
 	frying_pan.begin_minigame()
 
 func end_game(cooked_ingredient_items):
-	frying_pan_game_result.show()
-	frying_pan_game_result.init_result(cooked_ingredient_items)
+	game_result.show()
+	game_result.init_result(cooked_ingredient_items)
+
+func go_to_cooking_scene():
+	get_tree().change_scene_to_file("res://scenes/Cooking.tscn")

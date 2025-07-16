@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://b5sc0io88sahd"]
+[gd_scene load_steps=2 format=3 uid="uid://b5sc0io88sahd"]
+
+[ext_resource type="Script" uid="uid://d1mcayah86flh" path="res://scripts/Cooking.gd" id="1_gnmif"]
 
 [node name="Cooking" type="Node2D"]
+script = ExtResource("1_gnmif")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -28,10 +31,3 @@ offset_top = 382.0
 offset_right = 836.0
 offset_bottom = 413.0
 text = "Boiling Pot"
-
-[node name="ChoppingStation" type="Button" parent="CanvasLayer"]
-offset_left = 548.0
-offset_top = 447.0
-offset_right = 630.0
-offset_bottom = 478.0
-text = "Chopping"
