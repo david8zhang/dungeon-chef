@@ -50,14 +50,17 @@ func process_turn():
 	if turn_delay_timer != null and is_instance_valid(turn_delay_timer):
 		turn_delay_timer.queue_free()
 	var attacker_id = turn_order.pop_front()
-	curr_attacker = get_attacker_for_id(attacker_id)
-	var on_tween_finished = func _on_tween_finished():
-		var reset_tween = create_tween()
-		reset_tween.tween_property(curr_attacker, "scale", Vector2(1, 1), 0.5)
-		handle_action(curr_attacker)
-	var tween = create_tween()
-	tween.tween_property(curr_attacker, "scale", Vector2(1.5, 1.5), 0.5)
-	tween.finished.connect(on_tween_finished)
+	curr_attacker = get_attacker_for_id(attacker_id) as BattlerEntity
+	if curr_attacker == null:
+		go_to_next_turn()
+	else:
+		var on_tween_finished = func _on_tween_finished():
+			var reset_tween = create_tween()
+			reset_tween.tween_property(curr_attacker, "scale", Vector2(1, 1), 0.5)
+			handle_action(curr_attacker)
+		var tween = create_tween()
+		tween.tween_property(curr_attacker, "scale", Vector2(1.5, 1.5), 0.5)
+		tween.finished.connect(on_tween_finished)
 
 func handle_action(attacker):
 	var side = get_side(attacker)
@@ -109,12 +112,12 @@ func get_player_party_members():
 	var party_members = []
 	for node in player_party.get_children():
 		var pm = node as PartyMember
-		if is_instance_valid(pm):
+		if !pm.is_dead():
 			party_members.append(pm)
 	return party_members
 
 func get_monsters():
-	return monsters.filter(func(m): return is_instance_valid(m))
+	return monsters.filter(func(m): return !m.is_dead())
 
 func get_party_member_for_id(id: String):
 	for pm in get_player_party_members():

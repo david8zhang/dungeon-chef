@@ -4,6 +4,7 @@ extends Control
 @onready var ingredients_inventory = $Inventory
 @onready var view_ingredients_button = $ViewIngredients
 @onready var start_button = $StartButton as Button
+@onready var back_button = $BackButton as Button
 @onready var title = $Title as Label
 @onready var subtitle = $Subtitle as Label
 @onready var boiling_pot = $BoilingPot as BoilingPot
@@ -28,6 +29,7 @@ func _ready() -> void:
 	countdown.hide()
 	countdown.on_complete.connect(start_game_after_cd)
 	game_result.on_continue.connect(go_to_cooking_scene)
+	back_button.pressed.connect(go_to_cooking_scene)
 
 func show_ingredients_list():
 	ingredients_inventory.show()

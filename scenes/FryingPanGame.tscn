@@ -74,3 +74,14 @@ text = "Start"
 [node name="GameResult" parent="." instance=ExtResource("4_bb1ph")]
 visible = false
 layout_mode = 1
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Back
+"

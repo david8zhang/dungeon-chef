@@ -5,6 +5,7 @@ extends Control
 @onready var view_ingredients_button = $ViewIngredients
 @onready var frying_pan = $FryingPan as FryingPan
 @onready var start_button = $StartButton as Button
+@onready var back_button = $BackButton as Button
 @onready var title = $Title as Label
 @onready var subtitle = $Subtitle as Label
 @onready var game_result = $GameResult as GameResult
@@ -26,6 +27,7 @@ func _ready() -> void:
 	start_button.hide()
 	game_result.hide()
 	game_result.on_continue.connect(go_to_cooking_scene)
+	back_button.pressed.connect(go_to_cooking_scene)
 
 func show_ingredients_list():
 	ingredients_inventory.show()

@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbkeambt8wvcx"]
+
+[ext_resource type="PackedScene" uid="uid://cvct50b2wta71" path="res://prefabs/inventory.tscn" id="1_8d4tp"]
+[ext_resource type="Script" uid="uid://dogttxahisqpj" path="res://scripts/Plating.gd" id="1_icolh"]
+
+[node name="Plating" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_icolh")
+
+[node name="MainCourse" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -150.0
+offset_right = 161.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Course"
+
+[node name="MainCourseTexture" type="TextureRect" parent="MainCourse"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SideDish" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 211.0
+offset_top = -125.0
+offset_right = 461.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Side Dish"
+
+[node name="SideDishTexture" type="TextureRect" parent="SideDish"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "Back"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 63.0
+offset_top = 4.0
+offset_right = 304.0
+offset_bottom = 46.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Assemble a dish!"
+
+[node name="Subtitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_top = 54.0
+offset_right = 390.0
+offset_bottom = 82.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "Select a main course and an (optional) side"
+
+[node name="Inventory" parent="." instance=ExtResource("1_8d4tp")]
+layout_mode = 1
+anchors_preset = 4
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_right = 365.0
+grow_horizontal = 1

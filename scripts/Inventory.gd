@@ -11,6 +11,9 @@ signal on_item_selected(item)
 func _ready() -> void:
 	close_button.pressed.connect(close_inventory_menu)
 
+func hide_close_button():
+	close_button.hide()
+
 func init_items(inventory_items):
 	for child in inventory_container.get_children():
 		inventory_container.remove_child(child)

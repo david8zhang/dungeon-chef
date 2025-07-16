@@ -51,7 +51,7 @@ func is_dead():
 
 func play_death_anim(cb: Callable):
 	var on_tween_finished = func _on_tween_finished():
-		queue_free()
+		hide()
 		cb.call()
 	var tween = create_tween()
 	sprite.material = null

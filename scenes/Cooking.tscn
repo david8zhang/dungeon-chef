@@ -7,12 +7,12 @@ script = ExtResource("1_gnmif")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Packing" type="Button" parent="CanvasLayer"]
+[node name="Plating" type="Button" parent="CanvasLayer"]
 offset_left = 566.0
 offset_top = 282.0
 offset_right = 634.0
 offset_bottom = 313.0
-text = "Packing"
+text = "Plating"
 
 [node name="FryingPan" type="Button" parent="CanvasLayer"]
 anchors_preset = 5
