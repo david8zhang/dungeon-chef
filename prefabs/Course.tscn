@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgqdccr1n386k"]
+
+[ext_resource type="Script" uid="uid://b2k4lrm8kixwo" path="res://scripts/Course.gd" id="1_e486j"]
+[ext_resource type="Texture2D" uid="uid://dgd3ndax07v87" path="res://assets/placeholder_dish.png" id="1_onjxw"]
+
+[node name="Course" type="PanelContainer"]
+custom_minimum_size = Vector2(300, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -193.5
+offset_right = 150.0
+offset_bottom = 193.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_e486j")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("1_onjxw")
+stretch_mode = 5
+
+[node name="DishName" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Excellently Sauteed Placeholder Dish"
+fit_content = true
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="DishEffect" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "+10 HP"
+
+[node name="DishEffect2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "+10 HP"
+
+[node name="DishEffect3" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "+10 HP"

@@ -13,10 +13,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -50.0
-offset_right = 139.0
-offset_bottom = 50.0
+offset_left = -188.0
+offset_top = -60.0
+offset_right = 227.0
+offset_bottom = 86.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_u0lyg")
@@ -35,12 +35,25 @@ layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 100)
 layout_mode = 2
+
+[node name="SideCourse" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
 texture = ExtResource("2_pxgnl")
-expand_mode = 2
-stretch_mode = 4
+stretch_mode = 5
+
+[node name="MainCourse" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_pxgnl")
+stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2

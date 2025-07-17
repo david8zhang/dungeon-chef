@@ -92,7 +92,8 @@ func get_attacker_for_id(attacker_id: String):
 	return attacker
 
 func go_to_next_turn(delay: float = 0.5):
-	curr_attacker.toggle_highlight(false)
+	if curr_attacker != null:
+		curr_attacker.toggle_highlight(false)
 	turn_delay_timer = Timer.new()
 	turn_delay_timer.autostart = true
 	turn_delay_timer.one_shot = true

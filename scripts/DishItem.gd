@@ -1,7 +1,10 @@
 class_name DishItem
 extends InventoryItem
 
-var cooked_ingredients: Array[IngredientItem] = []
+var main_course: IngredientItem
+var side_course: IngredientItem
+
+var dish_name := ""
 
 func _init(_quantity: int = 0):
 	quantity = _quantity 

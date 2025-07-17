@@ -12,12 +12,17 @@ func _ready() -> void:
 
 func init_result(cooked_ingredients):
 	var consolidated_items = {}
-	for ing in (cooked_ingredients as Array[IngredientItem]):
-		if consolidated_items.has(ing.ingredient_stats.ingredient_name):
-			var ing_item = consolidated_items[ing.ingredient_stats.ingredient_name] as IngredientItem
+	for ing in (cooked_ingredients as Array[InventoryItem]):
+		var item_row_name = ""
+		if ing is IngredientItem:
+			item_row_name = ing.ingredient_stats.ingredient_name
+		elif ing is DishItem:
+			item_row_name = ing.dish_name
+		if consolidated_items.has(item_row_name):
+			var ing_item = consolidated_items[item_row_name] as IngredientItem
 			ing_item.quantity += 1
 		else:
-			consolidated_items[ing.ingredient_stats.ingredient_name] = ing
+			consolidated_items[item_row_name] = ing
 	for ing in consolidated_items.values():
 		var item_row_scene = inventory_row_scene.instantiate() as InventoryRow
 		ingredient_container.add_child(item_row_scene)

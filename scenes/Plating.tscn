@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbkeambt8wvcx"]
+[gd_scene load_steps=5 format=3 uid="uid://bbkeambt8wvcx"]
 
 [ext_resource type="PackedScene" uid="uid://cvct50b2wta71" path="res://prefabs/inventory.tscn" id="1_8d4tp"]
 [ext_resource type="Script" uid="uid://dogttxahisqpj" path="res://scripts/Plating.gd" id="1_icolh"]
+[ext_resource type="PackedScene" uid="uid://dgqdccr1n386k" path="res://prefabs/Course.tscn" id="2_mahq5"]
+[ext_resource type="PackedScene" uid="uid://chy7upl30otxo" path="res://prefabs/GameResult.tscn" id="4_qgdqe"]
 
 [node name="Plating" type="Control"]
 layout_mode = 3
@@ -12,51 +14,47 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_icolh")
 
-[node name="MainCourse" type="Button" parent="."]
+[node name="MainCourse" parent="." instance=ExtResource("2_mahq5")]
+visible = false
+layout_mode = 1
+offset_left = -106.0
+offset_right = 194.0
+
+[node name="SideCourse" parent="." instance=ExtResource("2_mahq5")]
+visible = false
+layout_mode = 1
+offset_left = 244.0
+offset_right = 544.0
+
+[node name="MainCourseButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -139.0
+offset_left = -106.0
 offset_top = -150.0
-offset_right = 161.0
+offset_right = 194.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Main Course"
+text = "Add Main Course"
 
-[node name="MainCourseTexture" type="TextureRect" parent="MainCourse"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SideDish" type="Button" parent="."]
+[node name="SideCourseButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 211.0
-offset_top = -125.0
-offset_right = 461.0
-offset_bottom = 125.0
+offset_left = 244.0
+offset_top = -150.0
+offset_right = 544.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Side Dish"
-
-[node name="SideDishTexture" type="TextureRect" parent="SideDish"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+text = "Add Side Course (Optional)"
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 1
@@ -73,9 +71,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 63.0
+offset_left = 100.0
 offset_top = 4.0
-offset_right = 304.0
+offset_right = 341.0
 offset_bottom = 46.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
@@ -86,9 +84,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -23.0
+offset_left = 14.0
 offset_top = 54.0
-offset_right = 390.0
+offset_right = 427.0
 offset_bottom = 82.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 20
@@ -100,5 +98,17 @@ anchors_preset = 4
 anchor_left = 0.0
 anchor_right = 0.0
 offset_left = 0.0
-offset_right = 365.0
+offset_right = 437.0
 grow_horizontal = 1
+
+[node name="AssembleButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 753.0
+offset_top = 600.0
+offset_right = 836.0
+offset_bottom = 631.0
+text = "Assemble"
+
+[node name="GameResult" parent="." instance=ExtResource("4_qgdqe")]
+visible = false
+layout_mode = 1
