@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CustomerReaction" load_steps=2 format=3 uid="uid://c4ee7udjon4sk"]
+
+[ext_resource type="Script" uid="uid://ctgnpafkc487h" path="res://scripts/CustomerReaction.gd" id="1_yqp84"]
+
+[resource]
+script = ExtResource("1_yqp84")
+reaction_type = 0
+dialog_lines = Array[String](["Happy reaction"])
+metadata/_custom_type_script = "uid://ctgnpafkc487h"

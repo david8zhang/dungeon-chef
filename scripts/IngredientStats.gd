@@ -6,22 +6,13 @@ enum EffectType {
 	ATTACK,
 	DEFENSE,
 	FIRE_RESIST,
-	POISON_RESIST,
-	ACCURACY,
-	SPEED
-}
-
-enum FlavorProfile {
-	SPICY,
-	SOUR,
-	SAVORY,
-	SWEET,
-	SALTY,
-	BITTER
+	COLD_RESIST,
+	CURE_POISON
 }
 
 @export var ingredient_name: String = ""
-@export var texture: Texture
-@export var fry_effect_type: EffectType
-@export var boil_effect_type: EffectType
-@export var flavor_profile: FlavorProfile
+@export var raw_texture: Texture
+@export var fried_texture: Texture
+@export var boiled_texture: Texture
+@export var fry_effect_types: Array[EffectType]
+@export var boil_effect_types: Array[EffectType]

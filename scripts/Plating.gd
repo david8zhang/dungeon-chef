@@ -30,8 +30,8 @@ func _ready() -> void:
 	update_inventory()
 
 func update_inventory():
-	var raw_ingredients = PlayerVariables.ingredient_item_inventory.filter(func (ing): return ing.cook_type == IngredientItem.CookType.RAW)
-	ingredients_inventory.init_items(raw_ingredients)
+	var cooked_ingredients = PlayerVariables.ingredient_item_inventory.filter(func (ing): return ing.cook_type != IngredientItem.CookType.RAW)
+	ingredients_inventory.init_items(cooked_ingredients)
 
 func go_to_cooking_scene():
 	get_tree().change_scene_to_file("res://scenes/Cooking.tscn")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CustomerDialog" load_steps=2 format=3 uid="uid://bp53tyicoqkgr"]
+
+[ext_resource type="Script" uid="uid://dx4ixvqkjxgks" path="res://scripts/CustomerDialog.gd" id="1_q7up2"]
+
+[resource]
+script = ExtResource("1_q7up2")
+desired_effect_type = 4
+dialog_lines = Array[String](["Better get some snowshoes and mittens after lunch. I hear Snowpoint Glacier is quite chilly this time of year.", "I bet I could be preserved long enough to see the future if I froze solid on Icicle Mountain.", "I hear a frost troll lives in the ice caves nearby. My friend Bungo the Armless told me he's quite the charmer and comedian once you get to know him."])
+metadata/_custom_type_script = "uid://dx4ixvqkjxgks"

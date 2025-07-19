@@ -3,9 +3,7 @@ extends InventoryItem
 
 enum CookType {
 	RAW,
-	SAUTED,
 	FRIED,
-	CHOPPED,
 	BOILED
 }
 
@@ -39,10 +37,42 @@ func get_name_with_modifiers():
 	match cook_type:
 		CookType.RAW:
 			cook_type_modifier = "Raw "
-		CookType.SAUTED:
-			cook_type_modifier = "Sautéed "
 		CookType.FRIED:
 			cook_type_modifier = "Fried "
 		CookType.BOILED:
 			cook_type_modifier = "Boiled "
 	return grade_modifier + cook_type_modifier + ingredient_stats.ingredient_name
+
+func get_texture():
+	match cook_type:
+		CookType.FRIED:
+			return ingredient_stats.fried_texture
+		CookType.BOILED:
+			return ingredient_stats.boiled_texture
+		CookType.RAW:
+			return ingredient_stats.raw_texture
+
+func get_name_for_effect(effect_type: IngredientStats.EffectType):
+	match effect_type:
+		IngredientStats.EffectType.HEALING:
+			return "Healing"
+		IngredientStats.EffectType.ATTACK:
+			return "Attack Increase"
+		IngredientStats.EffectType.DEFENSE:
+			return "Defense Increase"
+		IngredientStats.EffectType.FIRE_RESIST:
+			return "Fire Resist"
+		IngredientStats.EffectType.COLD_RESIST:
+			return "Cold Resist"
+		IngredientStats.EffectType.CURE_POISON:
+			return "Cure Poison"
+
+func get_effect_names():
+	return get_effect_types().map(func (e): return get_name_for_effect(e))
+
+func get_effect_types():
+	match cook_type:
+		CookType.FRIED:
+			return ingredient_stats.fry_effect_types
+		CookType.BOILED:
+			return ingredient_stats.boil_effect_types

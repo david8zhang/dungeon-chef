@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CustomerDialog" load_steps=2 format=3 uid="uid://qqtw07k0um6"]
+
+[ext_resource type="Script" uid="uid://dx4ixvqkjxgks" path="res://scripts/CustomerDialog.gd" id="1_l0nkn"]
+
+[resource]
+script = ExtResource("1_l0nkn")
+desired_effect_type = 1
+dialog_lines = Array[String](["I needed a way to increase my damage output against monsters so I started calling them ugly while stabbing them to infuse my attacks with emotional DPS.", "I'm trying to min max my character build to maximize damage output. I recently forgot how to tie my shoes after re-allocating my Intelligence skill points into Strength"])
+metadata/_custom_type_script = "uid://dx4ixvqkjxgks"

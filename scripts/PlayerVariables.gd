@@ -2,6 +2,7 @@ extends Node
 
 var ingredient_item_inventory = []
 var dish_to_serve
+var curr_customer_needs = []
 
 func add_ingredient_item_to_inventory(ingredient_item: IngredientItem):
 	var does_ing_exist_in_inventory := false

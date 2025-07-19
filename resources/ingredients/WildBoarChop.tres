@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="IngredientStats" load_steps=2 format=3 uid="uid://bnakvxwh1h65h"]
+
+[ext_resource type="Script" uid="uid://vuvqfvq0aqxj" path="res://scripts/IngredientStats.gd" id="1_hca6l"]
+
+[resource]
+script = ExtResource("1_hca6l")
+ingredient_name = "Wild Boar Chop"
+fry_effect_types = Array[int]([1])
+boil_effect_types = Array[int]([0])
+metadata/_custom_type_script = "uid://vuvqfvq0aqxj"

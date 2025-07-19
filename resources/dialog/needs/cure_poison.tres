@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CustomerDialog" load_steps=2 format=3 uid="uid://dbgmcxb12lh4v"]
+
+[ext_resource type="Script" uid="uid://dx4ixvqkjxgks" path="res://scripts/CustomerDialog.gd" id="1_txe6t"]
+
+[resource]
+script = ExtResource("1_txe6t")
+desired_effect_type = 5
+dialog_lines = Array[String](["Arghh my stomach...I knew I shouldn't have tried defeating all those poison slimes by eating them to death.", "So far my teeth are bleeding, my hair is falling out, and the vision in my left eye is upside down. I bet that means the invisibility potion Ratler the Homeless sold me is working!"])
+metadata/_custom_type_script = "uid://dx4ixvqkjxgks"

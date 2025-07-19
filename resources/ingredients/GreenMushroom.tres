@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="IngredientStats" load_steps=2 format=3 uid="uid://c7m2s8bw2o2a6"]
+
+[ext_resource type="Script" uid="uid://vuvqfvq0aqxj" path="res://scripts/IngredientStats.gd" id="1_3ruak"]
+
+[resource]
+script = ExtResource("1_3ruak")
+ingredient_name = "Green Mushrooms"
+fry_effect_types = Array[int]([5])
+boil_effect_types = Array[int]([0])
+metadata/_custom_type_script = "uid://vuvqfvq0aqxj"

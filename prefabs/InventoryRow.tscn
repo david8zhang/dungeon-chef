@@ -62,23 +62,29 @@ theme_override_constants/separation = 5
 [node name="ItemName" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
 text = "Raw Placeholder Ingredient"
 fit_content = true
 
-[node name="StatLabel1" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="ItemDescription" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "+10 Health Regen"
+theme_override_font_sizes/italics_font_size = 12
+bbcode_enabled = true
+text = "[i]Fried: Healing, Attack Boost
+Boiled: Healing, Defense Boost"
+fit_content = true
 
-[node name="StatLabel2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="IngredientEffect1" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "+10 Health Regen"
+theme_override_font_sizes/font_size = 15
+text = "Healing"
 
-[node name="StatLabel3" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="IngredientEffect2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "+10 Health Regen"
+theme_override_font_sizes/font_size = 15
+text = "Cure Poison"
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)

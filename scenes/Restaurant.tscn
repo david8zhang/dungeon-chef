@@ -1,13 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://l6xuh80r65pw"]
+[gd_scene load_steps=5 format=3 uid="uid://l6xuh80r65pw"]
 
 [ext_resource type="Script" uid="uid://p3bppesm3ugg" path="res://scripts/Restaurant.gd" id="1_pbh5m"]
 [ext_resource type="PackedScene" uid="uid://cgqtyxv25yyae" path="res://prefabs/Customer.tscn" id="2_1vhhy"]
+[ext_resource type="PackedScene" uid="uid://cuuwjvrs81j4c" path="res://prefabs/Dish.tscn" id="3_30ysf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vhhy"]
+bg_color = Color(0.921875, 0.820372, 0.622592, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.341161, 0.27642, 0.12015, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Restaurant" type="Node2D"]
 script = ExtResource("1_pbh5m")
 
 [node name="Customer" parent="." instance=ExtResource("2_1vhhy")]
-position = Vector2(576, 324)
+position = Vector2(348, 281)
 
 [node name="Table" type="ColorRect" parent="."]
 modulate = Color(0.588235, 0.294118, 0, 1)
@@ -30,3 +43,34 @@ grow_vertical = 0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "Go to Kitchen"
+
+[node name="DialogBox" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 616.0
+offset_top = 55.0
+offset_right = 920.0
+offset_bottom = 361.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1vhhy")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/DialogBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/DialogBox/MarginContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "I hear a frost troll lives in the ice caves nearby. My friend Bungo the Armless told me he's quite the charmer and comedian once you get to know him. "
+
+[node name="NextLineButton" type="Button" parent="CanvasLayer/DialogBox/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Next"
+
+[node name="Dish" parent="." instance=ExtResource("3_30ysf")]
+visible = false
+position = Vector2(670, 309)

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CustomerDialog" load_steps=2 format=3 uid="uid://deoypii6j311k"]
+
+[ext_resource type="Script" uid="uid://dx4ixvqkjxgks" path="res://scripts/CustomerDialog.gd" id="1_8rp7o"]
+
+[resource]
+script = ExtResource("1_8rp7o")
+desired_effect_type = 2
+dialog_lines = Array[String](["I'm not sure why I keep losing fights to John. I've been effortlessly blocking all his punches with my jaw and temples.", "These bruises? Well let's just say what doesn't kill you makes you stronger. But it also makes the guy who tried to kill you stronger too."])
+metadata/_custom_type_script = "uid://dx4ixvqkjxgks"

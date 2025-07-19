@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuuwjvrs81j4c"]
+
+[ext_resource type="Texture2D" uid="uid://dikervpjgo8ke" path="res://assets/placeholder_frying_pan.png" id="1_rl8ja"]
+[ext_resource type="Texture2D" uid="uid://c7gqk6i0pvsmr" path="res://assets/placeholder_ingredient.png" id="2_pvc7s"]
+
+[node name="Dish" type="Node2D"]
+
+[node name="Plate" type="Sprite2D" parent="."]
+position = Vector2(1, 200)
+scale = Vector2(1, 0.292969)
+texture = ExtResource("1_rl8ja")
+
+[node name="MainCourse" type="Sprite2D" parent="."]
+position = Vector2(-70, 132)
+scale = Vector2(8, 8)
+texture = ExtResource("2_pvc7s")
+
+[node name="SideCourse" type="Sprite2D" parent="."]
+position = Vector2(77, 144)
+scale = Vector2(7, 7)
+texture = ExtResource("2_pvc7s")

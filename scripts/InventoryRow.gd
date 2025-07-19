@@ -21,7 +21,7 @@ func set_item(_item: InventoryItem):
 	item = _item
 	quantity_label.text = str(_item.quantity)
 	if _item is IngredientItem:
-		main_course_texture.texture = _item.ingredient_stats.texture
+		# main_course_texture.texture = _item.ingredient_stats.texture
 		item_name_label.text = _item.get_name_with_modifiers()
 		main_course_texture.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 		side_course_texture.hide()
