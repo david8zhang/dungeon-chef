@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="IngredientStats" load_steps=3 format=3 uid="uid://c7rm3mx55f24h"]
+
+[ext_resource type="Script" uid="uid://vuvqfvq0aqxj" path="res://scripts/IngredientStats.gd" id="1_7x45s"]
+[ext_resource type="Texture2D" uid="uid://c7gqk6i0pvsmr" path="res://assets/placeholder_ingredient.png" id="2_qjilm"]
+
+[resource]
+script = ExtResource("1_7x45s")
+ingredient_name = "Dragon Tail"
+texture = ExtResource("2_qjilm")
+fry_effect_type = 1
+boil_effect_type = 0
+flavor_profile = 0
+metadata/_custom_type_script = "uid://vuvqfvq0aqxj"

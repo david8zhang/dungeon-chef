@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://24olpuur4xk3"]
+[gd_scene load_steps=6 format=3 uid="uid://c64bieuy8lb7o"]
 
 [ext_resource type="Script" uid="uid://chi32da3puvgl" path="res://scripts/BoilingGame.gd" id="1_u1vtd"]
 [ext_resource type="PackedScene" uid="uid://cvct50b2wta71" path="res://prefabs/inventory.tscn" id="1_vldwm"]

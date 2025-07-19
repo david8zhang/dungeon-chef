@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="dungeon-chef"
-run/main_scene="uid://dx14jx5jluo53"
+run/main_scene="uid://clmcutj0s27br"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PlayerVariables="*res://scripts/PlayerVariables.gd"
 
 [display]
 

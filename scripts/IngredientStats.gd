@@ -1,21 +1,27 @@
 class_name IngredientStats
 extends Resource
 
-enum IngredientType {
-	PROTEIN,
-	VEGETABLE,
-	SEASONING,
-	LIQUID
-}
-
 enum EffectType {
 	HEALING,
 	ATTACK,
-	DEFENSE
+	DEFENSE,
+	FIRE_RESIST,
+	POISON_RESIST,
+	ACCURACY,
+	SPEED
 }
 
-@export var ingredient_type: IngredientType
+enum FlavorProfile {
+	SPICY,
+	SOUR,
+	SAVORY,
+	SWEET,
+	SALTY,
+	BITTER
+}
+
 @export var ingredient_name: String = ""
 @export var texture: Texture
-@export var effect_type: EffectType
-@export var effect_amount_base := 0
+@export var fry_effect_type: EffectType
+@export var boil_effect_type: EffectType
+@export var flavor_profile: FlavorProfile

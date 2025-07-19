@@ -37,6 +37,7 @@ func process_cooked_ingredient(pan_ingredient: PanIngredient):
 	if cooked_ingredients.size() == num_ingredients_to_cook:
 		var cooked_ingredient_items = cooked_ingredients.map(func(ci): return ci.ingredient_item)
 		for ci in cooked_ingredient_items:
+			ci.quantity = 1
 			ci.cook_type = IngredientItem.CookType.FRIED
 			ci.cook_grade = IngredientItem.CookGrade.AVERAGE
 		frying_pan_game.end_game(cooked_ingredient_items)

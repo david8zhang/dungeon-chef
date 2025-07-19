@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://l6xuh80r65pw"]
+
+[ext_resource type="Script" uid="uid://p3bppesm3ugg" path="res://scripts/Restaurant.gd" id="1_pbh5m"]
+[ext_resource type="PackedScene" uid="uid://cgqtyxv25yyae" path="res://prefabs/Customer.tscn" id="2_1vhhy"]
+
+[node name="Restaurant" type="Node2D"]
+script = ExtResource("1_pbh5m")
+
+[node name="Customer" parent="." instance=ExtResource("2_1vhhy")]
+position = Vector2(576, 324)
+
+[node name="Table" type="ColorRect" parent="."]
+modulate = Color(0.588235, 0.294118, 0, 1)
+offset_top = 448.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -113.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Go to Kitchen"

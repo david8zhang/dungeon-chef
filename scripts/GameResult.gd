@@ -15,14 +15,15 @@ func init_result(cooked_ingredients):
 	for ing in (cooked_ingredients as Array[InventoryItem]):
 		var item_row_name = ""
 		if ing is IngredientItem:
-			item_row_name = ing.ingredient_stats.ingredient_name
-		elif ing is DishItem:
-			item_row_name = ing.dish_name
+			item_row_name = ing.get_name_with_modifiers()
 		if consolidated_items.has(item_row_name):
 			var ing_item = consolidated_items[item_row_name] as IngredientItem
 			ing_item.quantity += 1
 		else:
-			consolidated_items[item_row_name] = ing
+			var new_ing_item = IngredientItem.new()
+			new_ing_item.copy_from_item(ing)
+			new_ing_item.quantity = 1
+			consolidated_items[item_row_name] = new_ing_item
 	for ing in consolidated_items.values():
 		var item_row_scene = inventory_row_scene.instantiate() as InventoryRow
 		ingredient_container.add_child(item_row_scene)
