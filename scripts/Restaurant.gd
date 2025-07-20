@@ -66,9 +66,10 @@ func get_customer_reaction_to_dish(dish_to_serve: DishItem):
 	var all_effects = main_course.get_effect_types()
 	if side_course != null:
 		all_effects += side_course.get_effect_types()
-	for need in PlayerVariables.curr_customer_needs:
-		if all_effects.has(need):
+	for effect in all_effects:
+		if PlayerVariables.curr_customer_needs.has(effect):
 			score += 2
+	print("Needs score: " + str(score))
 	score += get_points_for_quality(main_course.cook_grade)
 	if side_course != null:
 		score += get_points_for_quality(side_course.cook_grade)
@@ -77,9 +78,10 @@ func get_customer_reaction_to_dish(dish_to_serve: DishItem):
 	# Maximum possible score = 2 for each need met plus 3 for each excellently cooked course
 	var max_possible_score = (PlayerVariables.curr_customer_needs.size() * 2) + 6
 	var percentage = float(score) / float(max_possible_score)
+	print("Score percentage: " + str(percentage))
 	if percentage >= 0.7:
 		reaction = CustomerReaction.ReactionType.HAPPY
-	elif percentage < 0.5:
+	elif percentage < 0.4:
 		reaction = CustomerReaction.ReactionType.UNHAPPY
 	return reaction
 
@@ -93,12 +95,12 @@ func get_points_for_quality(cook_grade: IngredientItem.CookGrade):
 			return 1
 
 func get_rewards():
-	var num_rand_ingredients = 3
+	var num_rand_ingredients = 2
 	match customer_reaction:
 		CustomerReaction.ReactionType.HAPPY:
-			num_rand_ingredients = 5
+			num_rand_ingredients = 3
 		CustomerReaction.ReactionType.UNHAPPY:
-			num_rand_ingredients = 2
+			num_rand_ingredients = 1
 	var ingredient_rewards = []
 	var all_ingredient_stats = []
 	for file_name in DirAccess.get_files_at("res://resources/ingredients"):

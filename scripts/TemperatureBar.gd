@@ -12,8 +12,12 @@ const ZONE_MOVE_OFFSET = 50
 const MAX_MOVEMENTS = 15
 const ZONE_WIDTH = 50
 
+var time_in_zone = 0
+var total_time = 0
+
 var is_complete := false
-signal on_complete
+var check_zone_timer: Timer
+signal on_complete(pct_time_in_zone)
 
 func _process(delta: float) -> void:
 	var fill_rect_left_x = fill_rect.global_position.x
@@ -35,11 +39,29 @@ func start():
 	temp_marker.global_position.x = optimal_zone.global_position.x + optimal_zone.size.x / 2
 	handle_random_zone_movements(num_movements, MAX_MOVEMENTS)
 
+	check_zone_timer = Timer.new()
+	check_zone_timer.wait_time = 0.1
+	check_zone_timer.autostart = true
+	var callable = Callable(self, "check_in_zone")
+	check_zone_timer.timeout.connect(callable)
+	add_child(check_zone_timer)
+
+func check_in_zone():
+	var optimal_zone_left_bound = optimal_zone.global_position.x
+	var optimal_zone_right_bound = optimal_zone.global_position.x + optimal_zone.size.x
+	var temp_marker_x = temp_marker.global_position.x
+	if temp_marker_x >= optimal_zone_left_bound and temp_marker_x <= optimal_zone_right_bound:
+		time_in_zone += 1
+	total_time += 1
+
 
 func handle_random_zone_movements(num_movements, max_movements):	
 	if num_movements == max_movements:
+		check_zone_timer.stop()
+		var pct_in_zone = float(time_in_zone) / float(total_time)
+		print("Percentage of time within zone: " + str(pct_in_zone))
 		is_complete = true
-		on_complete.emit()
+		on_complete.emit(pct_in_zone)
 		return
 	var new_tween = create_tween()
 	var left_bound = fill_rect.global_position.x + ZONE_WIDTH / 2.0

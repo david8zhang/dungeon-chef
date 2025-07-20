@@ -8,6 +8,15 @@ var did_flip = false
 var burn_tween: Tween
 var cook_tween: Tween
 
+enum CookTiming {
+	EARLY,
+	PERFECT,
+	LATE
+}
+
+var top_side_timing = CookTiming.EARLY
+var bottom_side_timing = CookTiming.EARLY
+
 signal on_cooked(pan_ingredient)
 
 func _ready():
@@ -24,6 +33,20 @@ func on_flip():
 func begin_cooking():
 	var on_finished = func _on_finished():
 		sprite.modulate = Color(0, 1, 0)
+		if !did_flip:
+			top_side_timing = CookTiming.PERFECT
+		else:
+			bottom_side_timing = CookTiming.PERFECT
+
+		# Set timer when perfect cook timing expires
+		var expiry_timer = Timer.new()
+		expiry_timer.wait_time = 0.5
+		expiry_timer.autostart = true
+		expiry_timer.one_shot = true
+		var callable = Callable(self, "expire_perfect_timing")
+		expiry_timer.timeout.connect(callable)
+		add_child(expiry_timer)
+		
 		burn_tween = create_tween()
 		burn_tween.tween_property(sprite, "modulate", Color(0, 0, 0, 1), 3.0)
 	var cook_time = randi_range(5, 15)
@@ -45,3 +68,9 @@ func cook_other_side():
 	cook_tween = create_tween()
 	cook_tween.tween_property(sprite, "modulate", Color(1, 0, 0, 1), float(cook_time))
 	cook_tween.finished.connect(on_finished)	
+
+func expire_perfect_timing():
+	if !did_flip:
+		top_side_timing = CookTiming.LATE
+	else:
+		bottom_side_timing = CookTiming.LATE

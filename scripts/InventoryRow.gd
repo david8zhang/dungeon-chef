@@ -32,7 +32,6 @@ func set_item(_item: InventoryItem):
 			toggle_effect_label_visiblity(false)
 		else:
 			item_description.hide()
-			toggle_effect_label_visiblity(true)
 			var effect_names = _item.get_effect_names()
 			var idx = 0
 			for en in effect_names:

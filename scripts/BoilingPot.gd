@@ -34,10 +34,18 @@ func begin_minigame():
 	temperature_bar.show()
 	temperature_bar.start()
 
-func end_minigame():
+func end_minigame(pct_in_zone: float):
 	var cooked_ingredients = []
 	for ing in (ingredient_items as Array[IngredientItem]):
-		ing.cook_grade = IngredientItem.CookGrade.AVERAGE
+		ing.cook_grade = get_grade_for_pct_in_zone(pct_in_zone)
 		ing.cook_type = IngredientItem.CookType.BOILED
 		cooked_ingredients.append(ing)
 	boiling_game.end_game(cooked_ingredients)
+
+func get_grade_for_pct_in_zone(pct_in_zone: float):
+	if pct_in_zone >= 0.8:
+		return IngredientItem.CookGrade.EXCELLENT
+	elif pct_in_zone < 0.8 and pct_in_zone >= 0.5:
+		return IngredientItem.CookGrade.AVERAGE
+	else:
+		return IngredientItem.CookGrade.POOR
