@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SpecialCustomerDialog" load_steps=2 format=3 uid="uid://buj5fodet7rp4"]
+
+[ext_resource type="Script" uid="uid://dbvs4v17ms4v0" path="res://scripts/SpecialCustomerDialog.gd" id="1_qw5yv"]
+
+[resource]
+script = ExtResource("1_qw5yv")
+dialog_lines = Array[String](["Rev up those fryers, cause I am sure hungry for one- ", "What? You're out of ingredients? ...Fine take these then."])
+metadata/_custom_type_script = "uid://dbvs4v17ms4v0"

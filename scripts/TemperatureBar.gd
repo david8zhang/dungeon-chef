@@ -9,7 +9,7 @@ var temp_increase_per_sec := 100
 var num_zones = 0
 
 const ZONE_MOVE_OFFSET = 50
-const MAX_MOVEMENTS = 15
+const MAX_MOVEMENTS = 10
 const ZONE_WIDTH = 50
 
 var time_in_zone = 0
@@ -64,8 +64,8 @@ func handle_random_zone_movements(num_movements, max_movements):
 		on_complete.emit(pct_in_zone)
 		return
 	var new_tween = create_tween()
-	var left_bound = fill_rect.global_position.x + ZONE_WIDTH / 2.0
-	var right_bound = fill_rect.global_position.x + fill_rect.size.x - ZONE_WIDTH / 2.0
+	var left_bound = fill_rect.global_position.x + ZONE_WIDTH
+	var right_bound = fill_rect.global_position.x + fill_rect.size.x - ZONE_WIDTH
 	var rand_x = 0
 	if optimal_zone.global_position.x - ZONE_MOVE_OFFSET < left_bound:
 		rand_x = ZONE_MOVE_OFFSET

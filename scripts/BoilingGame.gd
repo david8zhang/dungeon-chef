@@ -25,7 +25,7 @@ func _ready() -> void:
 	countdown.hide()
 	countdown.on_complete.connect(start_game_after_cd)
 	game_result.on_continue.connect(go_to_cooking_scene)
-	back_button.pressed.connect(go_to_cooking_scene)
+	back_button.pressed.connect(go_back)
 	flame_animation.hide()
 	update_inventory()
 
@@ -44,6 +44,7 @@ func hide_ingredients_list():
 func start_game():
 	ingredients_inventory.hide()
 	start_button.hide()
+	back_button.hide()
 	view_ingredients_button.hide()
 	countdown.start()
 
@@ -64,6 +65,14 @@ func add_item_to_pot(item: IngredientItem):
 		boiling_pot.add_item(single_item)
 		PlayerVariables.remove_ingredient_item_from_inventory(single_item)
 		update_inventory()
+
+func go_back():
+	# Add uncooked ingredients back into inventory
+	var ingredients_to_cook = boiling_pot.ingredient_items
+	if !ingredients_to_cook.is_empty():
+		for ing in ingredients_to_cook:
+			PlayerVariables.add_ingredient_item_to_inventory(ing)
+	go_to_cooking_scene()
 
 func end_game(cooked_ingredient_items):
 	boiling_sound.playing = false

@@ -1,8 +1,8 @@
 class_name GameResult
 extends Control
 
-@onready var ingredient_container = $PanelContainer/VBoxContainer/VBoxContainer2 as VBoxContainer
-@onready var continue_button = $PanelContainer/VBoxContainer/ContinueButton
+@onready var ingredient_container = $PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2 as VBoxContainer
+@onready var continue_button = $PanelContainer/MarginContainer/VBoxContainer/ContinueButton
 @export var inventory_row_scene: PackedScene
 
 signal on_continue
@@ -11,6 +11,9 @@ func _ready() -> void:
 	continue_button.pressed.connect(on_continue_clicked)
 
 func init_result(cooked_ingredients):
+	for child in ingredient_container.get_children():
+		if child is InventoryRow:
+			child.queue_free()
 	var consolidated_items = {}
 	for ing in (cooked_ingredients as Array[InventoryItem]):
 		var item_row_name = ""

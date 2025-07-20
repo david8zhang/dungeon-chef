@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SpecialCustomerDialog" load_steps=2 format=3 uid="uid://eqgifftny4n8"]
+
+[ext_resource type="Script" uid="uid://dbvs4v17ms4v0" path="res://scripts/SpecialCustomerDialog.gd" id="1_ckkm8"]
+
+[resource]
+script = ExtResource("1_ckkm8")
+dialog_lines = Array[String](["Hey can I get uhhh...", "Oh right! You just opened this place so you don't have any ingredients. Here take this! I'll come back later when you're ready."])
+metadata/_custom_type_script = "uid://dbvs4v17ms4v0"

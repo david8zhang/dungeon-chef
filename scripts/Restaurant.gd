@@ -8,7 +8,14 @@ extends Node2D
 @onready var dish = $Dish
 @onready var game_result = $CanvasLayer/GameResult
 
-# Determiens what kinds of foods the customer wants
+enum CustomerState {
+	ORDERING,
+	SERVED,
+	STARTER,
+	OUT_OF_INGREDIENTS
+}
+
+# Dialog configuration
 var dialog_config = {}
 var reaction_config = {}
 
@@ -18,10 +25,13 @@ var reaction_config = {}
 var customer_dialog_lines = []
 var customer_reaction = null
 var curr_dialog_index = 0
+var curr_state := CustomerState.ORDERING
 
 func _ready() -> void:
-	load_dialog_lines()
+	dialog_config = PlayerVariables.dialog_config
+	reaction_config = PlayerVariables.reaction_config
 	if PlayerVariables.dish_to_serve != null:
+		curr_state = CustomerState.SERVED
 		evaluate_dish()
 	else:
 		init_customer_needs()
@@ -29,30 +39,42 @@ func _ready() -> void:
 	next_line_button.pressed.connect(go_to_next_dialog_line)
 	game_result.on_continue.connect(generate_new_customer)
 
-func load_dialog_lines():
-	for file_name in DirAccess.get_files_at("res://resources/dialog/needs"):
-		if (file_name.get_extension() == "tres"):
-			var dialog_resource = load("res://resources/dialog/needs/" + file_name) as CustomerDialog
-			dialog_config[dialog_resource.desired_effect_type] = dialog_resource.dialog_lines
-	for file_name in DirAccess.get_files_at("res://resources/dialog/reactions"):
-		if (file_name.get_extension() == "tres"):
-			var reaction_resource = load("res://resources/dialog/reactions/" + file_name) as CustomerReaction
-			reaction_config[reaction_resource.reaction_type] = reaction_resource.dialog_lines
-
 func init_customer_needs():
-	customer.init_texture(PlayerVariables.curr_customer_texture)
-	if PlayerVariables.curr_customer_needs.is_empty():
-		var effect_types = IngredientStats.EffectType.values()
-		effect_types.shuffle()
-		for i in range(0, curr_level):
-			PlayerVariables.curr_customer_needs.append(effect_types[i])
-	if PlayerVariables.curr_customer_dialog.is_empty():
-		for need in PlayerVariables.curr_customer_needs:
-			customer_dialog_lines.append(dialog_config[need].pick_random())
+	# Check for special cases
+	if PlayerVariables.customers_served == 0:
+		customer.sprite.texture = load("res://assets/restaurant/ingredient_knight.png")
+		curr_state = CustomerState.STARTER
+		customer_dialog_lines = PlayerVariables.starter_dialog
+	elif PlayerVariables.is_inventory_empty():
+		customer.sprite.texture = load("res://assets/restaurant/ingredient_knight.png")
+		curr_state = CustomerState.OUT_OF_INGREDIENTS
+		customer_dialog_lines = PlayerVariables.out_of_ingredients_dialog
 	else:
-		customer_dialog_lines = PlayerVariables.curr_customer_dialog
+		# Regular ordering flow
+		curr_state = CustomerState.ORDERING
+		customer.init_texture(PlayerVariables.curr_customer_texture)
+		if PlayerVariables.curr_customer_needs.is_empty():
+			var effect_types = IngredientStats.EffectType.values()
+			effect_types.shuffle()
+			for i in range(0, get_num_needs()):
+				PlayerVariables.curr_customer_needs.append(effect_types[i])
+		if PlayerVariables.curr_customer_dialog.is_empty():
+			for need in PlayerVariables.curr_customer_needs:
+				customer_dialog_lines.append(dialog_config[need].pick_random())
+		else:
+			customer_dialog_lines = PlayerVariables.curr_customer_dialog
 	next_line_button.visible = customer_dialog_lines.size() > 1
 	dialog_box.text = customer_dialog_lines[curr_dialog_index]
+
+func get_num_needs():
+	var customers_served = PlayerVariables.customers_served
+	if customers_served >= 20:
+		return 4
+	elif customers_served >= 10 and customers_served < 20:
+		return 3
+	elif customers_served >= 5 and customers_served < 10:
+		return 2
+	return 1
 
 func go_to_kitchen():
 	PlayerVariables.curr_customer_texture = customer.sprite.texture
@@ -108,28 +130,46 @@ func get_rewards():
 			num_rand_ingredients = 3
 		CustomerReaction.ReactionType.UNHAPPY:
 			num_rand_ingredients = 1
-	var ingredient_rewards = []
-	var all_ingredient_stats = []
-	for file_name in DirAccess.get_files_at("res://resources/ingredients"):
-		if (file_name.get_extension() == "tres"):
-			var ingredient_stat = load("res://resources/ingredients/" + file_name)
-			all_ingredient_stats.append(ingredient_stat)
-	for i in range(0, num_rand_ingredients):
-		var rand_ingredient_stat = all_ingredient_stats.pick_random()
+	var ingredient_rewards = get_ingredients_to_add(num_rand_ingredients)
+	game_result.init_result(ingredient_rewards)
+
+func get_ingredients_to_add(num_ingredients):
+	var ingredients_to_add = []
+	for i in range(0, num_ingredients):
+		var rand_ingredient_stat = PlayerVariables.all_ingredient_stats.pick_random()
 		var ingredient_item = IngredientItem.new()
 		ingredient_item.ingredient_stats = rand_ingredient_stat
 		ingredient_item.quantity = 1
 		PlayerVariables.add_ingredient_item_to_inventory(ingredient_item)
-		ingredient_rewards.append(ingredient_item)
-	game_result.init_result(ingredient_rewards)
+		ingredients_to_add.append(ingredient_item)
+	return ingredients_to_add
 
 func go_to_next_dialog_line():
-	if PlayerVariables.dish_to_serve != null:
-		get_rewards()
-	elif !customer_dialog_lines.is_empty():
-		curr_dialog_index += 1
-		curr_dialog_index = curr_dialog_index % customer_dialog_lines.size()
-		dialog_box.text = customer_dialog_lines[curr_dialog_index]
+	match curr_state:
+		CustomerState.SERVED:
+			get_rewards()
+		CustomerState.ORDERING:
+			if !customer_dialog_lines.is_empty():
+				curr_dialog_index += 1
+				curr_dialog_index = curr_dialog_index % customer_dialog_lines.size()
+				dialog_box.text = customer_dialog_lines[curr_dialog_index]
+		CustomerState.STARTER:
+			if curr_dialog_index == customer_dialog_lines.size() - 1:
+				next_line_button.hide()
+				var ingredient_rewards = get_ingredients_to_add(3)
+				game_result.init_result(ingredient_rewards)
+				PlayerVariables.customers_served += 1
+			else:
+				curr_dialog_index += 1
+				dialog_box.text = customer_dialog_lines[curr_dialog_index]
+		CustomerState.OUT_OF_INGREDIENTS:
+			if curr_dialog_index == customer_dialog_lines.size() - 1:
+				next_line_button.hide()
+				var ingredient_rewards = get_ingredients_to_add(3)
+				game_result.init_result(ingredient_rewards)
+			else:
+				curr_dialog_index += 1
+				dialog_box.text = customer_dialog_lines[curr_dialog_index]
 
 func generate_new_customer():
 	curr_dialog_index = 0

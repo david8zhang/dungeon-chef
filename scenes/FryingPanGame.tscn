@@ -70,7 +70,7 @@ grow_horizontal = 1
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
-text = "View Ingredients"
+text = "Add Ingredients"
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 1

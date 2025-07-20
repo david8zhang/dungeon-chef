@@ -18,9 +18,9 @@ var main_course: IngredientItem
 var side_course: IngredientItem
 
 func _ready() -> void:
-	ingredients_inventory.hide_close_button()
 	ingredients_inventory.on_item_selected.connect(select_item)
-	back_button.pressed.connect(go_to_cooking_scene)
+	ingredients_inventory.on_close.connect(hide_ingredients_list)
+	back_button.pressed.connect(go_back)
 	serve_button.hide()
 	ingredients_inventory.init_items(inventory_config)
 	main_course_button.pressed.connect(select_main_course)
@@ -45,6 +45,9 @@ func select_item(item: IngredientItem):
 func remove_item_from_inventory(item):
 	PlayerVariables.remove_ingredient_item_from_inventory(item)
 	update_inventory()
+
+func hide_ingredients_list():
+	ingredients_inventory.hide()
 
 func select_main_course():
 	course_to_select = "main"
@@ -75,6 +78,14 @@ func set_side_course(selected_item: IngredientItem):
 		remove_item_from_inventory(selected_item)
 		side_course_info.init_from_ingredient_item(side_course)
 		side_course_info.show()
+
+func go_back():
+	# Add uncooked ingredients back into inventory
+	if main_course != null:
+		PlayerVariables.add_ingredient_item_to_inventory(main_course)
+	if side_course != null:
+		PlayerVariables.add_ingredient_item_to_inventory(side_course)
+	go_to_cooking_scene()
 
 func assemble_dish():
 	var dish_item = DishItem.new()

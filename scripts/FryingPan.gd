@@ -25,6 +25,9 @@ func add_item(item: IngredientItem):
 	ing_slot_to_show.set_ingredient_item(item)
 	ing_slot_to_show.show()
 
+func get_ingredients_to_cook():
+	return ingredients.filter(func (p): return p.ingredient_item != null).map(func (p): return p.ingredient_item)
+
 func begin_minigame():
 	var ingredients_in_pan = ingredients.filter(func (ing): return ing.visible)
 	num_ingredients_to_cook = ingredients_in_pan.size()

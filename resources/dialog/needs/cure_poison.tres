@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_4irvw")
 desired_effect_type = 5
-dialog_lines = Array[String](["Arghh my stomach...I knew I shouldn't have tried defeating all those [b][color=#00b159]poison slimes[/color][/b] by eating them to death.", "So far my teeth are bleeding, my hair is falling out, and the vision in my left eye is upside down. I bet that means the [b][color=#00b159]invisibility potion[/color][/b] Ratler the Homeless sold me is working!", "I’ll be journeying to [b][color=#00b159]Noxious Deathviper Swamp[/color][/b] tomorrow. Not to fulfill a quest or to find a great treasure or anything, I just like hanging out there."])
+dialog_lines = Array[String](["Arghh my stomach...I knew I shouldn't have tried defeating all those [b][color=#00b159]poison slimes[/color][/b] by eating them to death.", "So far my teeth are bleeding, my hair is falling out, and the vision in my left eye is upside down. I bet that means the invisibility potion  [b][color=#00b159]Slimo the Poisoner[/color][/b] sold me is working!", "I’ll be journeying to [b][color=#00b159]Noxious Deathviper Swamp[/color][/b] tomorrow. Not to fulfill a quest or to find a great treasure or anything, I just like hanging out there."])
 metadata/_custom_type_script = "uid://dx4ixvqkjxgks"

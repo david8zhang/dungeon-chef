@@ -23,7 +23,7 @@ func _ready() -> void:
 	start_button.hide()
 	game_result.hide()
 	game_result.on_continue.connect(go_to_cooking_scene)
-	back_button.pressed.connect(go_to_cooking_scene)
+	back_button.pressed.connect(go_back)
 	flame.hide()
 	update_inventory()
 
@@ -50,6 +50,7 @@ func add_item_to_pan(item: IngredientItem):
 		update_inventory()
 
 func start_game():
+	back_button.hide()
 	frying_sfx.playing = true
 	flame.show()
 	ingredients_inventory.hide()
@@ -66,6 +67,14 @@ func end_game(cooked_ingredient_items):
 		PlayerVariables.add_ingredient_item_to_inventory(ing_item)
 	game_result.show()
 	game_result.init_result(cooked_ingredient_items)
+
+func go_back():
+	# Add uncooked ingredients back into inventory
+	var ingredients_to_cook = frying_pan.get_ingredients_to_cook()
+	if !ingredients_to_cook.is_empty():
+		for ing in ingredients_to_cook:
+			PlayerVariables.add_ingredient_item_to_inventory(ing)
+	go_to_cooking_scene()
 
 func go_to_cooking_scene():
 	get_tree().change_scene_to_file("res://scenes/Cooking.tscn")

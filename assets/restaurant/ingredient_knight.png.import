@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7gqk6i0pvsmr"
-path="res://.godot/imported/placeholder_ingredient.png-dfaebb1c055b0d59e51d9a5450847392.ctex"
+uid="uid://bxvtc3j553jng"
+path="res://.godot/imported/ingredient_knight.png-6e416893eed5113416f2fa690eb4d03d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/placeholder_ingredient.png"
-dest_files=["res://.godot/imported/placeholder_ingredient.png-dfaebb1c055b0d59e51d9a5450847392.ctex"]
+source_file="res://assets/restaurant/ingredient_knight.png"
+dest_files=["res://.godot/imported/ingredient_knight.png-6e416893eed5113416f2fa690eb4d03d.ctex"]
 
 [params]
 
