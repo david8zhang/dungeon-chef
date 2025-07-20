@@ -43,10 +43,12 @@ func _ready() -> void:
 func init_customer_needs():
 	# Check for special cases
 	if PlayerVariables.customers_served == 0:
+		button.hide()
 		customer.sprite.texture = load("res://assets/restaurant/ingredient_knight.png")
 		curr_state = CustomerState.STARTER
 		customer_dialog_lines = PlayerVariables.starter_dialog
 	elif PlayerVariables.is_inventory_empty():
+		button.hide()
 		customer.sprite.texture = load("res://assets/restaurant/ingredient_knight.png")
 		curr_state = CustomerState.OUT_OF_INGREDIENTS
 		customer_dialog_lines = PlayerVariables.out_of_ingredients_dialog
@@ -85,6 +87,7 @@ func go_to_kitchen():
 func evaluate_dish():
 	dish.set_item(PlayerVariables.dish_to_serve)
 	dish.show()
+	customer.init_texture(PlayerVariables.curr_customer_texture)
 	customer_reaction = get_customer_reaction_to_dish(PlayerVariables.dish_to_serve)
 	var reaction_line = reaction_config[customer_reaction].pick_random()
 	dialog_box.text = reaction_line
@@ -173,10 +176,13 @@ func go_to_next_dialog_line():
 				dialog_box.text = customer_dialog_lines[curr_dialog_index]
 
 func generate_new_customer():
+	button.show()
 	curr_dialog_index = 0
 	customer_reaction = null
 	customer_dialog_lines = []
 	dish.hide()
 	PlayerVariables.dish_to_serve = null
 	PlayerVariables.curr_customer_needs = []
+	PlayerVariables.curr_customer_dialog = []
+	PlayerVariables.curr_customer_texture = null
 	init_customer_needs()

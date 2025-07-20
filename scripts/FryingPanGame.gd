@@ -13,8 +13,6 @@ extends Control
 @onready var frying_sfx = $FryingSound as AudioStreamPlayer
 
 func _ready() -> void:
-	if PlayerVariables.ingredient_item_inventory.is_empty():
-		PlayerVariables.init_ingredient_items_inventory()
 	ingredients_inventory.hide()
 	ingredients_inventory.on_item_selected.connect(add_item_to_pan)
 	view_ingredients_button.pressed.connect(show_ingredients_list)

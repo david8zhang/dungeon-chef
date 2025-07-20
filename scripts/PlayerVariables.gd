@@ -42,8 +42,8 @@ func load_dialog_lines():
 	dialog_config[IngredientStats.EffectType.COLD_RESIST] = load("res://resources/dialog/needs/cold_resist.tres").dialog_lines
 	dialog_config[IngredientStats.EffectType.CURE_POISON] = load("res://resources/dialog/needs/cure_poison.tres").dialog_lines
 	reaction_config[CustomerReaction.ReactionType.HAPPY] = load("res://resources/dialog/reactions/happy.tres").dialog_lines
-	reaction_config[CustomerReaction.ReactionType.UNHAPPY] = load("res://resources/dialog/reactions/unhappy.tres")
-	reaction_config[CustomerReaction.ReactionType.AVERAGE] = load("res://resources/dialog/reactions/average.tres")
+	reaction_config[CustomerReaction.ReactionType.UNHAPPY] = load("res://resources/dialog/reactions/unhappy.tres").dialog_lines
+	reaction_config[CustomerReaction.ReactionType.AVERAGE] = load("res://resources/dialog/reactions/average.tres").dialog_lines
 	var starter_dialog_resource = load("res://resources/dialog/special/StarterDialog.tres") as SpecialCustomerDialog
 	var out_of_ingredients_dialog_resource = load("res://resources/dialog/special/OutOfIngredients.tres") as SpecialCustomerDialog
 	starter_dialog = starter_dialog_resource.dialog_lines

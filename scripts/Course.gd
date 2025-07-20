@@ -4,7 +4,7 @@ extends PanelContainer
 @onready var ingredient_name = $MarginContainer/VBoxContainer/IngredientName as RichTextLabel
 @onready var texture_rect = $MarginContainer/VBoxContainer/TextureRect as TextureRect
 @onready var dish_effect_1 = $MarginContainer/VBoxContainer/DishEffect as RichTextLabel
-@onready var dish_effect_2 = $MarginContainer/VBoxContainer/DishEffect as RichTextLabel
+@onready var dish_effect_2 = $MarginContainer/VBoxContainer/DishEffect2 as RichTextLabel
 
 func init_from_ingredient_item(ingredient_item: IngredientItem):
 	ingredient_name.text = ingredient_item.get_name_with_modifiers()
