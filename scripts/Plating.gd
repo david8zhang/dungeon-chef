@@ -49,6 +49,7 @@ func set_main_course():
 		main_course_button.hide()
 		main_course = selected_item
 		remove_item_from_inventory(selected_item)
+		main_course_info.init_from_ingredient_item(main_course)
 		main_course_info.show()
 
 func set_side_dish_course():
@@ -56,6 +57,7 @@ func set_side_dish_course():
 		side_course_button.hide()
 		side_course = selected_item
 		remove_item_from_inventory(selected_item)
+		side_course_info.init_from_ingredient_item(side_course)
 		side_course_info.show()
 
 func assemble_dish():

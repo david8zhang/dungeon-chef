@@ -25,7 +25,7 @@ func init_ingredient_items_inventory():
 		if (file_name.get_extension() == "tres"):
 			var ingredient_stat = load("res://resources/ingredients/" + file_name)
 			all_ingredient_stats.append(ingredient_stat)
-	for i in range(0, 10):
+	for i in range(0, 5):
 		var rand_ingredient_stat = all_ingredient_stats.pick_random()
 		var ingredient_item = IngredientItem.new()
 		ingredient_item.ingredient_stats = rand_ingredient_stat

@@ -57,9 +57,9 @@ func get_name_for_effect(effect_type: IngredientStats.EffectType):
 		IngredientStats.EffectType.HEALING:
 			return "Healing"
 		IngredientStats.EffectType.ATTACK:
-			return "Attack Increase"
+			return "Attack Boost"
 		IngredientStats.EffectType.DEFENSE:
-			return "Defense Increase"
+			return "Defense Boost"
 		IngredientStats.EffectType.FIRE_RESIST:
 			return "Fire Resist"
 		IngredientStats.EffectType.COLD_RESIST:
@@ -76,3 +76,18 @@ func get_effect_types():
 			return ingredient_stats.fry_effect_types
 		CookType.BOILED:
 			return ingredient_stats.boil_effect_types
+
+func get_effect_description():
+	var frying_effects = "Fried: " + get_effects_comma_separated(ingredient_stats.fry_effect_types)
+	var boiling_effects = "Boiled: " + get_effects_comma_separated(ingredient_stats.boil_effect_types)
+	return "[i]" + frying_effects + "\n" + boiling_effects + "[i]"
+
+func get_effects_comma_separated(effect_types):
+	var effect_idx = 0
+	var result = ""
+	for effect in effect_types:
+		result += get_name_for_effect(effect)
+		if effect_idx != effect_types.size() - 1:
+			result += ", "
+		effect_idx += 1
+	return result

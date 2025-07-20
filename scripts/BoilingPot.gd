@@ -37,6 +37,7 @@ func begin_minigame():
 func end_minigame():
 	var cooked_ingredients = []
 	for ing in (ingredient_items as Array[IngredientItem]):
+		ing.cook_grade = IngredientItem.CookGrade.AVERAGE
 		ing.cook_type = IngredientItem.CookType.BOILED
 		cooked_ingredients.append(ing)
 	boiling_game.end_game(cooked_ingredients)

@@ -6,6 +6,7 @@ extends Node2D
 @onready var next_line_button = $CanvasLayer/DialogBox/MarginContainer/NextLineButton
 @onready var dialog_box = $CanvasLayer/DialogBox/MarginContainer/RichTextLabel as RichTextLabel
 @onready var dish = $Dish
+@onready var game_result = $CanvasLayer/GameResult
 
 # Determiens what kinds of foods the customer wants
 var dialog_config = {}
@@ -15,6 +16,7 @@ var reaction_config = {}
 @export var curr_level := 1
 
 var customer_dialog_lines = []
+var customer_reaction = null
 var curr_dialog_index = 0
 
 func _ready() -> void:
@@ -25,6 +27,7 @@ func _ready() -> void:
 		init_customer_needs()
 	button.pressed.connect(go_to_kitchen)
 	next_line_button.pressed.connect(go_to_next_dialog_line)
+	game_result.on_continue.connect(generate_new_customer)
 
 func load_dialog_lines():
 	for file_name in DirAccess.get_files_at("res://resources/dialog/needs"):
@@ -52,19 +55,33 @@ func go_to_kitchen():
 
 func evaluate_dish():
 	dish.show()
-	var dish_to_serve = PlayerVariables.dish_to_serve as DishItem
+	customer_reaction = get_customer_reaction_to_dish(PlayerVariables.dish_to_serve)
+	var reaction_line = reaction_config[customer_reaction].pick_random()
+	dialog_box.text = reaction_line
+
+func get_customer_reaction_to_dish(dish_to_serve: DishItem):
 	var main_course = dish_to_serve.main_course as IngredientItem
 	var side_course = dish_to_serve.side_course as IngredientItem
-	var score = get_points_for_quality(main_course.cook_grade)
+	var score = 0
+	var all_effects = main_course.get_effect_types()
+	if side_course != null:
+		all_effects += side_course.get_effect_types()
+	for need in PlayerVariables.curr_customer_needs:
+		if all_effects.has(need):
+			score += 2
+	score += get_points_for_quality(main_course.cook_grade)
 	if side_course != null:
 		score += get_points_for_quality(side_course.cook_grade)
 	var reaction = CustomerReaction.ReactionType.AVERAGE
-	if score >= 5:
+
+	# Maximum possible score = 2 for each need met plus 3 for each excellently cooked course
+	var max_possible_score = (PlayerVariables.curr_customer_needs.size() * 2) + 6
+	var percentage = float(score) / float(max_possible_score)
+	if percentage >= 0.7:
 		reaction = CustomerReaction.ReactionType.HAPPY
-	elif score <= 2:
+	elif percentage < 0.5:
 		reaction = CustomerReaction.ReactionType.UNHAPPY
-	var reaction_line = reaction_config[reaction].pick_random()
-	dialog_box.text = reaction_line
+	return reaction
 
 func get_points_for_quality(cook_grade: IngredientItem.CookGrade):
 	match cook_grade:
@@ -75,9 +92,40 @@ func get_points_for_quality(cook_grade: IngredientItem.CookGrade):
 		IngredientItem.CookGrade.POOR:
 			return 1
 
+func get_rewards():
+	var num_rand_ingredients = 3
+	match customer_reaction:
+		CustomerReaction.ReactionType.HAPPY:
+			num_rand_ingredients = 5
+		CustomerReaction.ReactionType.UNHAPPY:
+			num_rand_ingredients = 2
+	var ingredient_rewards = []
+	var all_ingredient_stats = []
+	for file_name in DirAccess.get_files_at("res://resources/ingredients"):
+		if (file_name.get_extension() == "tres"):
+			var ingredient_stat = load("res://resources/ingredients/" + file_name)
+			all_ingredient_stats.append(ingredient_stat)
+	for i in range(0, num_rand_ingredients):
+		var rand_ingredient_stat = all_ingredient_stats.pick_random()
+		var ingredient_item = IngredientItem.new()
+		ingredient_item.ingredient_stats = rand_ingredient_stat
+		ingredient_item.quantity = 1
+		PlayerVariables.add_ingredient_item_to_inventory(ingredient_item)
+		ingredient_rewards.append(ingredient_item)
+	game_result.init_result(ingredient_rewards)
 
 func go_to_next_dialog_line():
-	if !customer_dialog_lines.is_empty():
+	if PlayerVariables.dish_to_serve != null:
+		get_rewards()
+	elif !customer_dialog_lines.is_empty():
 		curr_dialog_index += 1
 		curr_dialog_index = curr_dialog_index % customer_dialog_lines.size()
 		dialog_box.text = customer_dialog_lines[curr_dialog_index]
+
+func generate_new_customer():
+	curr_dialog_index = 0
+	customer_reaction = null
+	customer_dialog_lines = []
+	dish.hide()
+	PlayerVariables.dish_to_serve = null
+	init_customer_needs()

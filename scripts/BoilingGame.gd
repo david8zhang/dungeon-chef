@@ -61,6 +61,8 @@ func add_item_to_pot(item: IngredientItem):
 		update_inventory()
 
 func end_game(cooked_ingredient_items):
+	for ing_item in cooked_ingredient_items:
+		PlayerVariables.add_ingredient_item_to_inventory(ing_item)
 	game_result.show()
 	game_result.init_result(cooked_ingredient_items)
 

@@ -28,6 +28,8 @@ func init_result(cooked_ingredients):
 		var item_row_scene = inventory_row_scene.instantiate() as InventoryRow
 		ingredient_container.add_child(item_row_scene)
 		item_row_scene.set_item(ing)
+	show()
 
 func on_continue_clicked():
+	hide()
 	on_continue.emit()

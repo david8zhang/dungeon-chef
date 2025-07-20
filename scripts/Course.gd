@@ -1,13 +1,13 @@
 class_name Course
 extends PanelContainer
 
-@onready var dish_name = $MarginContainer/VBoxContainer/IngredientName as Label
+@onready var ingredient_name = $MarginContainer/VBoxContainer/IngredientName as RichTextLabel
 @onready var texture_rect = $MarginContainer/VBoxContainer/TextureRect as TextureRect
 @onready var dish_effect_1 = $MarginContainer/VBoxContainer/DishEffect as Label
 @onready var dish_effect_2 = $MarginContainer/VBoxContainer/DishEffect as Label
 
 func init_from_ingredient_item(ingredient_item: IngredientItem):
-	dish_name = ingredient_item.get_name_with_modifiers()
+	ingredient_name.text = ingredient_item.get_name_with_modifiers()
 	# texture_rect.texture = ingredient_item.get_texture()
 	var dish_effect_labels = [dish_effect_1, dish_effect_2]
 	var effect_names = ingredient_item.get_effect_names()
