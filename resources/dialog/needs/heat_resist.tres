@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CustomerDialog" load_steps=2 format=3 uid="uid://bbeongbkska35"]
 
-[ext_resource type="Script" uid="uid://dx4ixvqkjxgks" path="res://scripts/CustomerDialog.gd" id="1_5uvye"]
+[ext_resource type="Script" uid="uid://dx4ixvqkjxgks" path="res://scripts/CustomerDialog.gd" id="1_51nhd"]
 
 [resource]
-script = ExtResource("1_5uvye")
+script = ExtResource("1_51nhd")
 desired_effect_type = 3
-dialog_lines = Array[String](["I'm sure the guy who named Deathfire Lava Cave was probably just exaggerating. I should be fine as long as I drink plenty of water. ", "I read somewhere that fire-breathing dragons are named that because they can breathe under fire. I admire their ability to stay calm under pressure. "])
+dialog_lines = Array[String](["I'm sure the guy who named [b][color=#f37735]Deathfire Lava Cave[/color][/b] was probably just exaggerating. I should be fine as long as I drink plenty of water. ", "I read somewhere that [b][color=#f37735]fire-breathing[/color][/b] dragons are named that because they can breathe under fire. I admire their ability to stay calm under pressure. "])
 metadata/_custom_type_script = "uid://dx4ixvqkjxgks"

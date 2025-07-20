@@ -10,6 +10,7 @@ extends Control
 @onready var boiling_pot = $BoilingPot as BoilingPot
 @onready var game_result = $GameResult as GameResult
 @onready var countdown = $Countdown as Countdown
+@onready var flame_animation = $Flame
 
 func _ready() -> void:
 	if PlayerVariables.ingredient_item_inventory.is_empty():
@@ -24,6 +25,7 @@ func _ready() -> void:
 	countdown.on_complete.connect(start_game_after_cd)
 	game_result.on_continue.connect(go_to_cooking_scene)
 	back_button.pressed.connect(go_to_cooking_scene)
+	flame_animation.hide()
 	update_inventory()
 
 func update_inventory():
@@ -48,6 +50,7 @@ func start_game_after_cd():
 	countdown.hide()
 	title.show()
 	subtitle.show()
+	flame_animation.show()	
 	boiling_pot.begin_minigame()
 
 func add_item_to_pot(item: IngredientItem):

@@ -8,6 +8,7 @@ extends Node2D
 @onready var color_rect = $ColorRect as ColorRect
 @onready var ingredients = [pot_ingredient, pot_ingredient_2, pot_ingredient_3]
 @onready var temperature_bar = $TemperatureBar as TemperatureBar
+@onready var sprite = $Pot as Sprite2D
 
 var ingredient_items = []
 const MAX_ITEMS := 3
@@ -17,6 +18,7 @@ func _ready() -> void:
 		pi.hide()
 	temperature_bar.hide()
 	temperature_bar.on_complete.connect(end_minigame)
+	sprite.modulate = Color(0, 0, 0, 0.5)
 
 func add_item(item: InventoryItem):
 	var ing_slots = ingredients.filter(func (ing): return !ing.visible)
@@ -28,7 +30,7 @@ func can_add_item():
 	return ingredient_items.size() < MAX_ITEMS
 
 func begin_minigame():
-	color_rect.color = Color(0.1, 0.1, 0.1, 1)
+	sprite.modulate = Color(1, 1, 1, 1)
 	for ing in ingredients:
 		ing.hide()
 	temperature_bar.show()

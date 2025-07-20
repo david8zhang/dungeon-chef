@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CustomerDialog" load_steps=2 format=3 uid="uid://bp53tyicoqkgr"]
 
-[ext_resource type="Script" uid="uid://dx4ixvqkjxgks" path="res://scripts/CustomerDialog.gd" id="1_q7up2"]
+[ext_resource type="Script" uid="uid://dx4ixvqkjxgks" path="res://scripts/CustomerDialog.gd" id="1_on5ys"]
 
 [resource]
-script = ExtResource("1_q7up2")
+script = ExtResource("1_on5ys")
 desired_effect_type = 4
-dialog_lines = Array[String](["Better get some snowshoes and mittens after lunch. I hear Snowpoint Glacier is quite chilly this time of year.", "I bet I could be preserved long enough to see the future if I froze solid on Icicle Mountain.", "I hear a frost troll lives in the ice caves nearby. My friend Bungo the Armless told me he's quite the charmer and comedian once you get to know him."])
+dialog_lines = Array[String](["Better get some snowshoes and mittens after lunch. I hear [b][color=#00aedb]Snowpoint Glacier[/color][/b] is quite [b][color=#00aedb]chilly[color][/b] this time of year.", "I bet I could be preserved long enough to see the future if I [b][color=#00aedb]froze[/color][/b] solid on [b][color=#00aedb]Icicle Mountain[color][/b].", "I hear a [b][color=#00aedb]frost[/color][/b] troll lives in the [b][color=#00aedb]ice caves[/color][/b] in the [b][color=#00aedb]Frozen Ravine[/color][/b]. My friend Bungo the Armless told me he's quite the charmer and comedian once you get to know him."])
 metadata/_custom_type_script = "uid://dx4ixvqkjxgks"

@@ -1,10 +1,16 @@
-[gd_resource type="Resource" script_class="IngredientStats" load_steps=2 format=3 uid="uid://c7m2s8bw2o2a6"]
+[gd_resource type="Resource" script_class="IngredientStats" load_steps=5 format=3 uid="uid://c7m2s8bw2o2a6"]
 
 [ext_resource type="Script" uid="uid://vuvqfvq0aqxj" path="res://scripts/IngredientStats.gd" id="1_3ruak"]
+[ext_resource type="Texture2D" uid="uid://dm4f4huu7bwcl" path="res://assets/ingredients/green_mushroom_boiled.png" id="1_pjtnu"]
+[ext_resource type="Texture2D" uid="uid://qct3500k80nr" path="res://assets/ingredients/green_mushrooms_fried.png" id="2_rlnrt"]
+[ext_resource type="Texture2D" uid="uid://dne7sj58iuryr" path="res://assets/ingredients/green_mushrooms_raw.png" id="3_d4f1h"]
 
 [resource]
 script = ExtResource("1_3ruak")
 ingredient_name = "Green Mushrooms"
+raw_texture = ExtResource("3_d4f1h")
+fried_texture = ExtResource("2_rlnrt")
+boiled_texture = ExtResource("1_pjtnu")
 fry_effect_types = Array[int]([5])
 boil_effect_types = Array[int]([0])
 metadata/_custom_type_script = "uid://vuvqfvq0aqxj"

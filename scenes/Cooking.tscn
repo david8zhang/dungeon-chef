@@ -1,36 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5sc0io88sahd"]
+[gd_scene load_steps=5 format=3 uid="uid://b5sc0io88sahd"]
 
 [ext_resource type="Script" uid="uid://d1mcayah86flh" path="res://scripts/Cooking.gd" id="1_gnmif"]
+[ext_resource type="Texture2D" uid="uid://d2bxfg3e6li8o" path="res://assets/kitchen/kitchen_stove.png" id="2_s6r7k"]
+[ext_resource type="Texture2D" uid="uid://ba25fu8myy82j" path="res://assets/kitchen/potleft.png" id="3_11rc5"]
+[ext_resource type="Texture2D" uid="uid://c6y587tgx4sa5" path="res://assets/kitchen/panright.png" id="4_joufg"]
 
 [node name="Cooking" type="Node2D"]
 script = ExtResource("1_gnmif")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("2_s6r7k")
+
+[node name="Pot" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("3_11rc5")
+
+[node name="Pan" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("4_joufg")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Plating" type="Button" parent="CanvasLayer"]
-offset_left = 566.0
-offset_top = 282.0
-offset_right = 634.0
-offset_bottom = 313.0
+offset_left = 813.0
+offset_top = 129.0
+offset_right = 881.0
+offset_bottom = 160.0
 text = "Plating"
 
 [node name="FryingPan" type="Button" parent="CanvasLayer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -227.0
-offset_top = 351.0
-offset_right = -138.0
-offset_bottom = 382.0
+offset_left = 60.0
+offset_top = 312.0
+offset_right = 573.0
+offset_bottom = 463.0
 grow_horizontal = 2
-text = "Frying Pan"
+flat = true
 
 [node name="BoilingPot" type="Button" parent="CanvasLayer"]
-offset_left = 745.0
-offset_top = 382.0
-offset_right = 836.0
-offset_bottom = 413.0
-text = "Boiling Pot"
+offset_left = 96.0
+offset_top = 41.0
+offset_right = 534.0
+offset_bottom = 473.0
+flat = true
 
 [node name="Back" type="Button" parent="CanvasLayer"]
 offset_right = 91.0

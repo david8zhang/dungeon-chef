@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_ff308")
 reaction_type = 2
-dialog_lines = Array[String](["unhappy reaction"])
+dialog_lines = Array[String](["Wow. That's actually quite bad. Here, have this I guess..."])
 metadata/_custom_type_script = "uid://ctgnpafkc487h"

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CustomerDialog" load_steps=2 format=3 uid="uid://deoypii6j311k"]
 
-[ext_resource type="Script" uid="uid://dx4ixvqkjxgks" path="res://scripts/CustomerDialog.gd" id="1_8rp7o"]
+[ext_resource type="Script" uid="uid://dx4ixvqkjxgks" path="res://scripts/CustomerDialog.gd" id="1_b2res"]
 
 [resource]
-script = ExtResource("1_8rp7o")
+script = ExtResource("1_b2res")
 desired_effect_type = 2
-dialog_lines = Array[String](["I'm not sure why I keep losing fights to John. I've been effortlessly blocking all his punches with my jaw and temples.", "These bruises? Well let's just say what doesn't kill you makes you stronger. But it also makes the guy who tried to kill you stronger too."])
+dialog_lines = Array[String](["I'm not sure why I keep losing fights to John. I've been effortlessly [b][color=#ce7e00]blocking all his punches[/color][/b] with my jaw and temples.", "Helmets, breastplates, chainmail, pauldrons AND gauntlets? Why not just [b][color=#ce7e00]move out of the way[/color][/b] when somebody attacks you? Smells like a scam perpetuated by Big Armor.", "I’ve heard Throgg the Annihilator can smash right through plate steel. Good thing I’ve made my [b][color=#ce7e00]armor[/color][/b] out of ceramic and wood."])
 metadata/_custom_type_script = "uid://dx4ixvqkjxgks"

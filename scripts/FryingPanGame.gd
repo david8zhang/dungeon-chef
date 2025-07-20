@@ -9,6 +9,7 @@ extends Control
 @onready var title = $Title as Label
 @onready var subtitle = $Subtitle as Label
 @onready var game_result = $GameResult as GameResult
+@onready var flame = $Flame
 
 func _ready() -> void:
 	if PlayerVariables.ingredient_item_inventory.is_empty():
@@ -22,6 +23,7 @@ func _ready() -> void:
 	game_result.hide()
 	game_result.on_continue.connect(go_to_cooking_scene)
 	back_button.pressed.connect(go_to_cooking_scene)
+	flame.hide()
 	update_inventory()
 
 func update_inventory():
@@ -47,6 +49,7 @@ func add_item_to_pan(item: IngredientItem):
 		update_inventory()
 
 func start_game():
+	flame.show()
 	ingredients_inventory.hide()
 	start_button.hide()
 	view_ingredients_button.hide()

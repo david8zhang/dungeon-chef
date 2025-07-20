@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgqdccr1n386k"]
 
 [ext_resource type="Script" uid="uid://b2k4lrm8kixwo" path="res://scripts/Course.gd" id="1_e486j"]
-[ext_resource type="Texture2D" uid="uid://dgd3ndax07v87" path="res://assets/placeholder_dish.png" id="1_onjxw"]
+[ext_resource type="Texture2D" uid="uid://d24oxx2kk3e7m" path="res://assets/ingredients/dragon_tail_fried.png" id="2_e486j"]
 
 [node name="Course" type="PanelContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -33,8 +33,9 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
-texture = ExtResource("1_onjxw")
-stretch_mode = 5
+texture = ExtResource("2_e486j")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="IngredientName" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -46,14 +47,14 @@ fit_content = true
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 
-[node name="DishEffect" type="Label" parent="MarginContainer/VBoxContainer"]
-visible = false
+[node name="DishEffect" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
+bbcode_enabled = true
 text = "+10 HP"
+fit_content = true
 
-[node name="DishEffect2" type="Label" parent="MarginContainer/VBoxContainer"]
-visible = false
+[node name="DishEffect2" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 15
+bbcode_enabled = true
 text = "+10 HP"
+fit_content = true

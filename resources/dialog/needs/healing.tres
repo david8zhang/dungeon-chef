@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CustomerDialog" load_steps=2 format=3 uid="uid://dfe58f4ee3sc0"]
 
-[ext_resource type="Script" uid="uid://dx4ixvqkjxgks" path="res://scripts/CustomerDialog.gd" id="1_7iev8"]
+[ext_resource type="Script" uid="uid://dx4ixvqkjxgks" path="res://scripts/CustomerDialog.gd" id="1_8ky84"]
 
 [resource]
-script = ExtResource("1_7iev8")
+script = ExtResource("1_8ky84")
 desired_effect_type = 0
-dialog_lines = Array[String](["These gruesome injuries are definitely heroic battle wounds from adventuring and not from falling down the stairs this morning.", "I'm starting to think all those leeches the doctor gave me isn't doing anything at all for my dislocated pelvis."])
+dialog_lines = Array[String](["These gruesome [b][color=#d11141]injuries[/color][/b] are definitely heroic battle wounds from adventuring and not from falling down the stairs this morning.", "I'm starting to think all those leeches the doctor gave me isn't doing anything at all for my [b][color=#d11141]dislocated pelvis[/color][/b]."])
 metadata/_custom_type_script = "uid://dx4ixvqkjxgks"

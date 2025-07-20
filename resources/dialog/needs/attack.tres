@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CustomerDialog" load_steps=2 format=3 uid="uid://qqtw07k0um6"]
 
-[ext_resource type="Script" uid="uid://dx4ixvqkjxgks" path="res://scripts/CustomerDialog.gd" id="1_l0nkn"]
+[ext_resource type="Script" uid="uid://dx4ixvqkjxgks" path="res://scripts/CustomerDialog.gd" id="1_s1ho4"]
 
 [resource]
-script = ExtResource("1_l0nkn")
+script = ExtResource("1_s1ho4")
 desired_effect_type = 1
-dialog_lines = Array[String](["I needed a way to increase my damage output against monsters so I started calling them ugly while stabbing them to infuse my attacks with emotional DPS.", "I'm trying to min max my character build to maximize damage output. I recently forgot how to tie my shoes after re-allocating my Intelligence skill points into Strength"])
+dialog_lines = Array[String](["I needed a way to increase my [b][color=#6a329f]damage output[/color][/b] against monsters so I started calling them ugly while stabbing them to infuse my attacks with emotional DPS.", "I'm trying to min max my character build to maximize [b][color=#6a329f]damage output[/color][/b]. I recently forgot how to tie my shoes after re-allocating my Intelligence skill points into Strength", "They say what doesn't kill you makes you stronger. I haven’t died at all yet so I’m not sure why I still [b][color=#6a329f]feel so weak[/color][/b].", "They told me offense is the best defense and defense is the best offense, so I traded in my sword for a shield and my shield for a sword. I’m excited to try out this new [b][color=#6a329f]fighting strategy[/color][/b]"])
 metadata/_custom_type_script = "uid://dx4ixvqkjxgks"

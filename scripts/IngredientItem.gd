@@ -18,6 +18,13 @@ var ingredient_stats: IngredientStats
 var cook_type: CookType = CookType.RAW
 var cook_grade: CookGrade = CookGrade.NONE
 
+static var HEALING_COLOR = "#d11141"
+static var ATTACK_COLOR = "#6a329f"
+static var DEFENSE_COLOR = "#ce7e00"
+static var FIRE_RESIST_COLOR = "#f37735"
+static var COLD_RESIST_COLOR = "#00aedb"
+static var CURE_POISON_COLOR = "#00b159"
+
 func copy_from_item(other_item: IngredientItem):
 	ingredient_stats = other_item.ingredient_stats
 	cook_type = other_item.cook_type
@@ -55,17 +62,17 @@ func get_texture():
 func get_name_for_effect(effect_type: IngredientStats.EffectType):
 	match effect_type:
 		IngredientStats.EffectType.HEALING:
-			return "Healing"
+			return "[color=" + HEALING_COLOR + "]Healing[/color]"
 		IngredientStats.EffectType.ATTACK:
-			return "Attack Boost"
+			return "[color=" + ATTACK_COLOR + "]Attack Boost[/color]"
 		IngredientStats.EffectType.DEFENSE:
-			return "Defense Boost"
+			return "[color=" + DEFENSE_COLOR + "]Defense Boost[/color]"
 		IngredientStats.EffectType.FIRE_RESIST:
-			return "Fire Resist"
+			return "[color=" + FIRE_RESIST_COLOR + "]Fire Resist[/color]"
 		IngredientStats.EffectType.COLD_RESIST:
-			return "Cold Resist"
+			return "[color=" + COLD_RESIST_COLOR + "]Cold Resist[/color]"
 		IngredientStats.EffectType.CURE_POISON:
-			return "Cure Poison"
+			return "[color=" + CURE_POISON_COLOR + "]Cure Poison[/color]"
 
 func get_effect_names():
 	return get_effect_types().map(func (e): return get_name_for_effect(e))

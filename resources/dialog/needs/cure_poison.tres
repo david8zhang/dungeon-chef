@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CustomerDialog" load_steps=2 format=3 uid="uid://dbgmcxb12lh4v"]
 
-[ext_resource type="Script" uid="uid://dx4ixvqkjxgks" path="res://scripts/CustomerDialog.gd" id="1_txe6t"]
+[ext_resource type="Script" uid="uid://dx4ixvqkjxgks" path="res://scripts/CustomerDialog.gd" id="1_4irvw"]
 
 [resource]
-script = ExtResource("1_txe6t")
+script = ExtResource("1_4irvw")
 desired_effect_type = 5
-dialog_lines = Array[String](["Arghh my stomach...I knew I shouldn't have tried defeating all those poison slimes by eating them to death.", "So far my teeth are bleeding, my hair is falling out, and the vision in my left eye is upside down. I bet that means the invisibility potion Ratler the Homeless sold me is working!"])
+dialog_lines = Array[String](["Arghh my stomach...I knew I shouldn't have tried defeating all those [b][color=#00b159]poison slimes[/color][/b] by eating them to death.", "So far my teeth are bleeding, my hair is falling out, and the vision in my left eye is upside down. I bet that means the [b][color=#00b159]invisibility potion[/color][/b] Ratler the Homeless sold me is working!", "I’ll be journeying to [b][color=#00b159]Noxious Deathviper Swamp[/color][/b] tomorrow. Not to fulfill a quest or to find a great treasure or anything, I just like hanging out there."])
 metadata/_custom_type_script = "uid://dx4ixvqkjxgks"

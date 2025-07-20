@@ -12,7 +12,7 @@ extends Control
 
 @export var course_scene: PackedScene
 
-var selected_item: IngredientItem
+var course_to_select := ""
 var inventory_config = []
 var main_course: IngredientItem
 var side_course: IngredientItem
@@ -23,8 +23,8 @@ func _ready() -> void:
 	back_button.pressed.connect(go_to_cooking_scene)
 	serve_button.hide()
 	ingredients_inventory.init_items(inventory_config)
-	main_course_button.pressed.connect(set_main_course)
-	side_course_button.pressed.connect(set_side_dish_course)
+	main_course_button.pressed.connect(select_main_course)
+	side_course_button.pressed.connect(select_side_course)
 	serve_button.pressed.connect(assemble_dish)
 	game_result.on_continue.connect(go_to_cooking_scene)
 	update_inventory()
@@ -37,14 +37,29 @@ func go_to_cooking_scene():
 	get_tree().change_scene_to_file("res://scenes/Cooking.tscn")
 
 func select_item(item: IngredientItem):
-	selected_item = item
+	if course_to_select == "main":
+		set_main_course(item)
+	elif course_to_select == "side":
+		set_side_course(item)
 
 func remove_item_from_inventory(item):
 	PlayerVariables.remove_ingredient_item_from_inventory(item)
 	update_inventory()
 
-func set_main_course():
+func select_main_course():
+	course_to_select = "main"
+	show_inventory()
+
+func select_side_course():
+	course_to_select = "side"
+	show_inventory()
+
+func show_inventory():
+	ingredients_inventory.show()
+
+func set_main_course(selected_item: IngredientItem):
 	if selected_item != null:
+		ingredients_inventory.hide()
 		serve_button.show()
 		main_course_button.hide()
 		main_course = selected_item
@@ -52,8 +67,9 @@ func set_main_course():
 		main_course_info.init_from_ingredient_item(main_course)
 		main_course_info.show()
 
-func set_side_dish_course():
+func set_side_course(selected_item: IngredientItem):
 	if selected_item != null:
+		ingredients_inventory.hide()
 		side_course_button.hide()
 		side_course = selected_item
 		remove_item_from_inventory(selected_item)

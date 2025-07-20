@@ -130,4 +130,5 @@ func generate_new_customer():
 	customer_dialog_lines = []
 	dish.hide()
 	PlayerVariables.dish_to_serve = null
+	PlayerVariables.curr_customer_needs = []
 	init_customer_needs()

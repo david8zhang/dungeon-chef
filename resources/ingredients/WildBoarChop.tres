@@ -1,10 +1,16 @@
-[gd_resource type="Resource" script_class="IngredientStats" load_steps=2 format=3 uid="uid://bnakvxwh1h65h"]
+[gd_resource type="Resource" script_class="IngredientStats" load_steps=5 format=3 uid="uid://bnakvxwh1h65h"]
 
+[ext_resource type="Texture2D" uid="uid://dnyr8r5473303" path="res://assets/ingredients/wild_boar_chop_boiled.png" id="1_3g4en"]
 [ext_resource type="Script" uid="uid://vuvqfvq0aqxj" path="res://scripts/IngredientStats.gd" id="1_hca6l"]
+[ext_resource type="Texture2D" uid="uid://ddk3hysy2xxod" path="res://assets/ingredients/wild_boar_chop_fried.png" id="2_sscfc"]
+[ext_resource type="Texture2D" uid="uid://cgw0aeu2dkmfc" path="res://assets/ingredients/wild_boar_chop_raw.png" id="3_sb1ij"]
 
 [resource]
 script = ExtResource("1_hca6l")
 ingredient_name = "Wild Boar Chop"
+raw_texture = ExtResource("3_sb1ij")
+fried_texture = ExtResource("2_sscfc")
+boiled_texture = ExtResource("1_3g4en")
 fry_effect_types = Array[int]([1])
 boil_effect_types = Array[int]([0])
 metadata/_custom_type_script = "uid://vuvqfvq0aqxj"

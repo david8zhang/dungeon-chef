@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_13god")
 reaction_type = 1
-dialog_lines = Array[String](["average reaction"])
+dialog_lines = Array[String](["Not bad, but could be better. Anyways, I found these off of monsters."])
 metadata/_custom_type_script = "uid://ctgnpafkc487h"
