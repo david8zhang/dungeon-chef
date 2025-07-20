@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="IngredientStats" load_steps=5 format=3 uid="uid://c7rm3mx55f24h"]
 
 [ext_resource type="Script" uid="uid://vuvqfvq0aqxj" path="res://scripts/IngredientStats.gd" id="1_7oqsl"]
-[ext_resource type="Texture2D" uid="uid://bktbxapjbngm7" path="res://assets/ingredients/dragon_tail_boiled.png" id="1_kjjah"]
-[ext_resource type="Texture2D" uid="uid://d24oxx2kk3e7m" path="res://assets/ingredients/dragon_tail_fried.png" id="2_w3b20"]
-[ext_resource type="Texture2D" uid="uid://c5v1qg75h182k" path="res://assets/ingredients/dragon_tail_raw.png" id="3_d74ps"]
+[ext_resource type="Texture2D" uid="uid://1855ji2mfq2o" path="res://assets/ingredients/drake_tail_boiled.png" id="1_kjjah"]
+[ext_resource type="Texture2D" uid="uid://dmd3elmmxct54" path="res://assets/ingredients/drake_tail_fried.png" id="2_w3b20"]
+[ext_resource type="Texture2D" uid="uid://dje6yrm4yy0c6" path="res://assets/ingredients/drake_tail_raw.png" id="3_d74ps"]
 
 [resource]
 script = ExtResource("1_7oqsl")

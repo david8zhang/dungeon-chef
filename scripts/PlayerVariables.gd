@@ -3,6 +3,15 @@ extends Node
 var ingredient_item_inventory = []
 var dish_to_serve
 var curr_customer_needs = []
+var curr_customer_texture
+var curr_customer_dialog = []
+
+func _ready() -> void:
+	var audio_stream_player = AudioStreamPlayer.new()
+	audio_stream_player.autoplay = true
+	audio_stream_player.stream = load("res://audio/bgm/Peritune_Sunlit_Cafe.mp3")
+	audio_stream_player.volume_db = -5.0
+	add_child(audio_stream_player)
 
 func add_ingredient_item_to_inventory(ingredient_item: IngredientItem):
 	var does_ing_exist_in_inventory := false

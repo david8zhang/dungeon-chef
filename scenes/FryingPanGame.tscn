@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://banhbjenbn2hh"]
+[gd_scene load_steps=8 format=3 uid="uid://banhbjenbn2hh"]
 
 [ext_resource type="Script" uid="uid://u3suiuf2sqjq" path="res://scripts/FryingPanGame.gd" id="1_4cprh"]
 [ext_resource type="PackedScene" uid="uid://dce1cvgbs2r0s" path="res://prefabs/FryingPan.tscn" id="2_4cprh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://wvshufgj10rk" path="res://assets/kitchen/cooking_base.png" id="2_y8klm"]
 [ext_resource type="PackedScene" uid="uid://dyb2v3rqxy7a0" path="res://prefabs/CookFlame.tscn" id="4_1d3dt"]
 [ext_resource type="PackedScene" uid="uid://chy7upl30otxo" path="res://prefabs/GameResult.tscn" id="4_bb1ph"]
+[ext_resource type="AudioStream" uid="uid://chioehwdg2f1" path="res://audio/sfx/frying.mp3" id="7_w7lp0"]
 
 [node name="FryingPanGame" type="Control"]
 layout_mode = 3
@@ -96,3 +97,7 @@ offset_bottom = 31.0
 grow_horizontal = 0
 text = "Back
 "
+
+[node name="FryingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_w7lp0")
+volume_db = -4.0

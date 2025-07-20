@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="IngredientStats" load_steps=5 format=3 uid="uid://c24h4etbv2rjb"]
 
-[ext_resource type="Texture2D" uid="uid://dblo7lquqvd0d" path="res://assets/ingredients/sproutes_boiled.png" id="1_c24p2"]
+[ext_resource type="Texture2D" uid="uid://6at42p1iexo5" path="res://assets/ingredients/sprouts_boiled.png" id="1_c24p2"]
 [ext_resource type="Script" uid="uid://vuvqfvq0aqxj" path="res://scripts/IngredientStats.gd" id="1_p8ey4"]
-[ext_resource type="Texture2D" uid="uid://ckeu4bguoepaf" path="res://assets/ingredients/sprouts_fried.png" id="2_ag26e"]
-[ext_resource type="Texture2D" uid="uid://cubqxcc5ncjvh" path="res://assets/ingredients/sprouts_raw.png" id="3_dnpfl"]
+[ext_resource type="Texture2D" uid="uid://bual2xdriwnvy" path="res://assets/ingredients/sprouts_fried.png" id="2_ag26e"]
+[ext_resource type="Texture2D" uid="uid://bu368l0wof4k3" path="res://assets/ingredients/sprouts_raw.png" id="3_dnpfl"]
 
 [resource]
 script = ExtResource("1_p8ey4")

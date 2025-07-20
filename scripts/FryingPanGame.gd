@@ -10,6 +10,7 @@ extends Control
 @onready var subtitle = $Subtitle as Label
 @onready var game_result = $GameResult as GameResult
 @onready var flame = $Flame
+@onready var frying_sfx = $FryingSound as AudioStreamPlayer
 
 func _ready() -> void:
 	if PlayerVariables.ingredient_item_inventory.is_empty():
@@ -49,6 +50,7 @@ func add_item_to_pan(item: IngredientItem):
 		update_inventory()
 
 func start_game():
+	frying_sfx.playing = true
 	flame.show()
 	ingredients_inventory.hide()
 	start_button.hide()
@@ -59,6 +61,7 @@ func start_game():
 	frying_pan.begin_minigame()
 
 func end_game(cooked_ingredient_items):
+	frying_sfx.playing = false
 	for ing_item in cooked_ingredient_items:
 		PlayerVariables.add_ingredient_item_to_inventory(ing_item)
 	game_result.show()

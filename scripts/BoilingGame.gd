@@ -11,6 +11,7 @@ extends Control
 @onready var game_result = $GameResult as GameResult
 @onready var countdown = $Countdown as Countdown
 @onready var flame_animation = $Flame
+@onready var boiling_sound = $BoilingSound as AudioStreamPlayer
 
 func _ready() -> void:
 	if PlayerVariables.ingredient_item_inventory.is_empty():
@@ -47,6 +48,7 @@ func start_game():
 	countdown.start()
 
 func start_game_after_cd():
+	boiling_sound.playing = true
 	countdown.hide()
 	title.show()
 	subtitle.show()
@@ -64,6 +66,7 @@ func add_item_to_pot(item: IngredientItem):
 		update_inventory()
 
 func end_game(cooked_ingredient_items):
+	boiling_sound.playing = false
 	for ing_item in cooked_ingredient_items:
 		PlayerVariables.add_ingredient_item_to_inventory(ing_item)
 	game_result.show()

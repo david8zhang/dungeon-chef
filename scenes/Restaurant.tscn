@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://l6xuh80r65pw"]
+[gd_scene load_steps=9 format=3 uid="uid://l6xuh80r65pw"]
 
 [ext_resource type="Script" uid="uid://p3bppesm3ugg" path="res://scripts/Restaurant.gd" id="1_pbh5m"]
 [ext_resource type="PackedScene" uid="uid://cgqtyxv25yyae" path="res://prefabs/Customer.tscn" id="2_1vhhy"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cuuwjvrs81j4c" path="res://prefabs/Dish.tscn" id="3_30ysf"]
 [ext_resource type="PackedScene" uid="uid://chy7upl30otxo" path="res://prefabs/GameResult.tscn" id="3_e0c3o"]
 [ext_resource type="Texture2D" uid="uid://bgxmlxfc3jg5q" path="res://assets/restaurant/table.png" id="4_46urj"]
+[ext_resource type="AudioStream" uid="uid://cu4460bnar5c4" path="res://audio/sfx/crowd-talking.mp3" id="7_mo5rl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1vhhy"]
 bg_color = Color(0.921875, 0.820372, 0.622592, 1)
@@ -83,3 +84,8 @@ visible = false
 [node name="Dish" parent="." instance=ExtResource("3_30ysf")]
 visible = false
 position = Vector2(670, 309)
+
+[node name="CrowdNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_mo5rl")
+volume_db = -8.0
+autoplay = true

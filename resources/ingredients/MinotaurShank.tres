@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="IngredientStats" load_steps=5 format=3 uid="uid://biw84pxbrkr0g"]
 
 [ext_resource type="Script" uid="uid://vuvqfvq0aqxj" path="res://scripts/IngredientStats.gd" id="1_174a6"]
-[ext_resource type="Texture2D" uid="uid://c4apvj5m2nnxc" path="res://assets/ingredients/minotaur_shank_boiled.png" id="1_li26g"]
-[ext_resource type="Texture2D" uid="uid://buslyi5uvkyrd" path="res://assets/ingredients/minotaur_shank_fried.png" id="2_oooti"]
-[ext_resource type="Texture2D" uid="uid://b5ns5ghqpei8u" path="res://assets/ingredients/minotaur_shank_raw.png" id="3_ciuee"]
+[ext_resource type="Texture2D" uid="uid://cjd4a5icx0nvj" path="res://assets/ingredients/minotaur_shank_boiled.png" id="1_li26g"]
+[ext_resource type="Texture2D" uid="uid://ctq2kboegpjh" path="res://assets/ingredients/minotaur_shank_fried.png" id="2_oooti"]
+[ext_resource type="Texture2D" uid="uid://bb1mc0yce821h" path="res://assets/ingredients/minotaur_shank_raw.png" id="3_ciuee"]
 
 [resource]
 script = ExtResource("1_174a6")

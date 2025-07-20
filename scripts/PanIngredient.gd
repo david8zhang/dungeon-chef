@@ -30,6 +30,10 @@ func on_flip():
 		on_cooked.emit(self)
 		hide()
 
+func set_ingredient_item(item: IngredientItem):
+	ingredient_item = item
+	sprite.texture = item.get_texture()
+
 func begin_cooking():
 	var on_finished = func _on_finished():
 		sprite.modulate = Color(0, 1, 0)

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b0ikf37qjkdpl" path="res://prefabs/TemperatureBar.tscn" id="1_o5y21"]
 [ext_resource type="Script" uid="uid://jbet0euy84u0" path="res://scripts/BoilingPot.gd" id="1_qr5qw"]
-[ext_resource type="Texture2D" uid="uid://c7gqk6i0pvsmr" path="res://assets/placeholder_ingredient.png" id="2_gp6cl"]
+[ext_resource type="Texture2D" uid="uid://cjd4a5icx0nvj" path="res://assets/ingredients/minotaur_shank_boiled.png" id="2_dw0sy"]
 [ext_resource type="Texture2D" uid="uid://caht22kfudkpl" path="res://assets/kitchen/pot.png" id="4_icw00"]
 [ext_resource type="Texture2D" uid="uid://dvewevhgn8mrp" path="res://assets/kitchen/cook_pot_lid.png" id="5_dw0sy"]
 
@@ -10,19 +10,19 @@
 script = ExtResource("1_qr5qw")
 
 [node name="PotIngredient" type="Sprite2D" parent="."]
-position = Vector2(-68, 95)
-scale = Vector2(6, 6)
-texture = ExtResource("2_gp6cl")
+position = Vector2(-75, 125)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dw0sy")
 
 [node name="PotIngredient2" type="Sprite2D" parent="."]
-position = Vector2(72, 98)
-scale = Vector2(6, 6)
-texture = ExtResource("2_gp6cl")
+position = Vector2(75, 125)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dw0sy")
 
 [node name="PotIngredient3" type="Sprite2D" parent="."]
-position = Vector2(6, 9)
-scale = Vector2(6, 6)
-texture = ExtResource("2_gp6cl")
+position = Vector2(6, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_dw0sy")
 
 [node name="TemperatureBar" parent="." instance=ExtResource("1_o5y21")]
 position = Vector2(-200, 271)

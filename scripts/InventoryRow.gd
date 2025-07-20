@@ -24,7 +24,7 @@ func set_item(_item: InventoryItem):
 	item = _item
 	quantity_label.text = str(_item.quantity)
 	if _item is IngredientItem:
-		# item_texture.texture = _item.ingredient_stats.texture
+		item_texture.texture = _item.get_texture()
 		item_name_label.text = _item.get_name_with_modifiers()
 		toggle_effect_label_visiblity(false)
 		if item.cook_type == IngredientItem.CookType.RAW:

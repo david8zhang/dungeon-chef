@@ -1,7 +1,7 @@
 class_name Restaurant
 extends Node2D
 
-@onready var customer = $Customer
+@onready var customer = $Customer as Customer
 @onready var button = $CanvasLayer/Button
 @onready var next_line_button = $CanvasLayer/DialogBox/MarginContainer/NextLineButton
 @onready var dialog_box = $CanvasLayer/DialogBox/MarginContainer/RichTextLabel as RichTextLabel
@@ -40,20 +40,27 @@ func load_dialog_lines():
 			reaction_config[reaction_resource.reaction_type] = reaction_resource.dialog_lines
 
 func init_customer_needs():
+	customer.init_texture(PlayerVariables.curr_customer_texture)
 	if PlayerVariables.curr_customer_needs.is_empty():
 		var effect_types = IngredientStats.EffectType.values()
 		effect_types.shuffle()
 		for i in range(0, curr_level):
 			PlayerVariables.curr_customer_needs.append(effect_types[i])
-	for need in PlayerVariables.curr_customer_needs:
-		customer_dialog_lines.append(dialog_config[need].pick_random())
+	if PlayerVariables.curr_customer_dialog.is_empty():
+		for need in PlayerVariables.curr_customer_needs:
+			customer_dialog_lines.append(dialog_config[need].pick_random())
+	else:
+		customer_dialog_lines = PlayerVariables.curr_customer_dialog
 	next_line_button.visible = customer_dialog_lines.size() > 1
 	dialog_box.text = customer_dialog_lines[curr_dialog_index]
 
 func go_to_kitchen():
+	PlayerVariables.curr_customer_texture = customer.sprite.texture
+	PlayerVariables.curr_customer_dialog = customer_dialog_lines
 	get_tree().change_scene_to_file("res://scenes/Cooking.tscn")
 
 func evaluate_dish():
+	dish.set_item(PlayerVariables.dish_to_serve)
 	dish.show()
 	customer_reaction = get_customer_reaction_to_dish(PlayerVariables.dish_to_serve)
 	var reaction_line = reaction_config[customer_reaction].pick_random()

@@ -8,7 +8,7 @@ extends PanelContainer
 
 func init_from_ingredient_item(ingredient_item: IngredientItem):
 	ingredient_name.text = ingredient_item.get_name_with_modifiers()
-	# texture_rect.texture = ingredient_item.get_texture()
+	texture_rect.texture = ingredient_item.get_texture()
 	var dish_effect_labels = [dish_effect_1, dish_effect_2]
 	var effect_names = ingredient_item.get_effect_names()
 	var idx = 0

@@ -19,10 +19,10 @@ func can_add_item():
 	var ing_slots = ingredients.filter(func (ing): return !ing.visible)
 	return !ing_slots.is_empty()
 
-func add_item(item: InventoryItem):
+func add_item(item: IngredientItem):
 	var ing_slots = ingredients.filter(func (ing): return !ing.visible)
 	var ing_slot_to_show = ing_slots[0] as PanIngredient
-	ing_slot_to_show.ingredient_item = item
+	ing_slot_to_show.set_ingredient_item(item)
 	ing_slot_to_show.show()
 
 func begin_minigame():

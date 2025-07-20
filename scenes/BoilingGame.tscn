@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c64bieuy8lb7o"]
+[gd_scene load_steps=9 format=3 uid="uid://c64bieuy8lb7o"]
 
 [ext_resource type="Script" uid="uid://chi32da3puvgl" path="res://scripts/BoilingGame.gd" id="1_u1vtd"]
 [ext_resource type="PackedScene" uid="uid://cvct50b2wta71" path="res://prefabs/inventory.tscn" id="1_vldwm"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://chy7upl30otxo" path="res://prefabs/GameResult.tscn" id="4_1bt8b"]
 [ext_resource type="PackedScene" uid="uid://dyb2v3rqxy7a0" path="res://prefabs/CookFlame.tscn" id="4_5afu6"]
 [ext_resource type="PackedScene" uid="uid://c5xv1lgcblkbs" path="res://prefabs/Countdown.tscn" id="5_kwa6b"]
+[ext_resource type="AudioStream" uid="uid://bugrabcmx17dg" path="res://audio/sfx/boiling.mp3" id="8_w03wc"]
 
 [node name="BoilingGame" type="Control"]
 layout_mode = 3
@@ -100,3 +101,7 @@ offset_left = -8.0
 offset_bottom = 8.0
 grow_horizontal = 0
 text = "Back"
+
+[node name="BoilingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_w03wc")
+volume_db = 5.0

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="IngredientStats" load_steps=5 format=3 uid="uid://c7m2s8bw2o2a6"]
 
 [ext_resource type="Script" uid="uid://vuvqfvq0aqxj" path="res://scripts/IngredientStats.gd" id="1_3ruak"]
-[ext_resource type="Texture2D" uid="uid://dm4f4huu7bwcl" path="res://assets/ingredients/green_mushroom_boiled.png" id="1_pjtnu"]
-[ext_resource type="Texture2D" uid="uid://qct3500k80nr" path="res://assets/ingredients/green_mushrooms_fried.png" id="2_rlnrt"]
-[ext_resource type="Texture2D" uid="uid://dne7sj58iuryr" path="res://assets/ingredients/green_mushrooms_raw.png" id="3_d4f1h"]
+[ext_resource type="Texture2D" uid="uid://ptisjps04po8" path="res://assets/ingredients/green_mushrooms_boiled.png" id="1_pjtnu"]
+[ext_resource type="Texture2D" uid="uid://dt0xr0t3ciodf" path="res://assets/ingredients/green_mushrooms_fried.png" id="2_rlnrt"]
+[ext_resource type="Texture2D" uid="uid://fec5vljscnnd" path="res://assets/ingredients/green_mushrooms_raw.png" id="3_d4f1h"]
 
 [resource]
 script = ExtResource("1_3ruak")
