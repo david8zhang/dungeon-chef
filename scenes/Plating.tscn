@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bbkeambt8wvcx"]
 
 [ext_resource type="PackedScene" uid="uid://cvct50b2wta71" path="res://prefabs/inventory.tscn" id="1_8d4tp"]
-[ext_resource type="Script" uid="uid://dogttxahisqpj" path="res://scripts/Plating.gd" id="1_icolh"]
+[ext_resource type="Script" path="res://scripts/Plating.gd" id="1_icolh"]
 [ext_resource type="Texture2D" uid="uid://drf0yg4a0mxx6" path="res://assets/kitchen/plating.png" id="2_dvyoq"]
 [ext_resource type="PackedScene" uid="uid://dgqdccr1n386k" path="res://prefabs/Course.tscn" id="2_mahq5"]
 [ext_resource type="PackedScene" uid="uid://chy7upl30otxo" path="res://prefabs/GameResult.tscn" id="4_qgdqe"]
@@ -84,6 +84,7 @@ offset_left = -120.5
 offset_right = 120.5
 offset_bottom = 42.0
 grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 30
 text = "Assemble a dish!"
@@ -98,6 +99,7 @@ offset_top = 50.0
 offset_right = 206.5
 offset_bottom = 78.0
 grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 20
 text = "Select a main course and an (optional) side"

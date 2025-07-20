@@ -6,9 +6,12 @@ extends Node2D
 var knight_textures = []
 
 func _ready() -> void:
-	for file_name in DirAccess.get_files_at("res://assets/restaurant/knights"):
-		if (file_name.get_extension() == "png"):
-			knight_textures.append(load("res://assets/restaurant/knights/" + file_name))
+	# Until I can figure out how to dynamically load resources correctly in Godot 4+
+	knight_textures = [
+		load("res://assets/restaurant/knights/knight_2.png"),
+		load("res://assets/restaurant/knights/knight_3.png"),
+		load("res://assets/restaurant/knights/knight_4.png")
+	]
 
 func init_texture(texture):
 	if texture != null:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5xv1lgcblkbs"]
 
-[ext_resource type="Script" uid="uid://e3my38w7g8mj" path="res://scripts/Countdown.gd" id="1_faplt"]
+[ext_resource type="Script" path="res://scripts/Countdown.gd" id="1_faplt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7l835"]
 bg_color = Color(0.113725, 0.113725, 0.113725, 0.784314)

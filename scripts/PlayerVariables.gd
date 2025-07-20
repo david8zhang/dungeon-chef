@@ -22,26 +22,32 @@ func _ready() -> void:
 	add_child(audio_stream_player)
 
 	# Load all ingredient stats
-	for file_name in DirAccess.get_files_at("res://resources/ingredients"):
-		if (file_name.get_extension() == "tres"):
-			var ingredient_stat = load("res://resources/ingredients/" + file_name)
-			all_ingredient_stats.append(ingredient_stat)
-
+	all_ingredient_stats = [
+		load("res://resources/ingredients/BlueMushroom.tres"),
+		load("res://resources/ingredients/RedMushroom.tres"),
+		load("res://resources/ingredients/GreenMushroom.tres"),
+		load("res://resources/ingredients/DrakeTail.tres"),
+		load("res://resources/ingredients/FrostTrollRibs.tres"),
+		load("res://resources/ingredients/MinotaurShank.tres"),
+		load("res://resources/ingredients/WildBoarChop.tres"),
+		load("res://resources/ingredients/WoodSpriteSprout.tres")
+	]
 	load_dialog_lines()
 
 func load_dialog_lines():
-	for file_name in DirAccess.get_files_at("res://resources/dialog/needs"):
-		if (file_name.get_extension() == "tres"):
-			var dialog_resource = load("res://resources/dialog/needs/" + file_name) as CustomerDialog
-			dialog_config[dialog_resource.desired_effect_type] = dialog_resource.dialog_lines
-	for file_name in DirAccess.get_files_at("res://resources/dialog/reactions"):
-		if (file_name.get_extension() == "tres"):
-			var reaction_resource = load("res://resources/dialog/reactions/" + file_name) as CustomerReaction
-			reaction_config[reaction_resource.reaction_type] = reaction_resource.dialog_lines
-		var starter_dialog_resource = load("res://resources/dialog/special/StarterDialog.tres") as SpecialCustomerDialog
-		var out_of_ingredients_dialog_resource = load("res://resources/dialog/special/OutOfIngredients.tres") as SpecialCustomerDialog
-		starter_dialog = starter_dialog_resource.dialog_lines
-		out_of_ingredients_dialog = out_of_ingredients_dialog_resource.dialog_lines
+	dialog_config[IngredientStats.EffectType.ATTACK] = load("res://resources/dialog/needs/attack.tres").dialog_lines
+	dialog_config[IngredientStats.EffectType.HEALING] = load("res://resources/dialog/needs/healing.tres").dialog_lines
+	dialog_config[IngredientStats.EffectType.DEFENSE] = load("res://resources/dialog/needs/defense.tres").dialog_lines
+	dialog_config[IngredientStats.EffectType.FIRE_RESIST] = load("res://resources/dialog/needs/heat_resist.tres").dialog_lines
+	dialog_config[IngredientStats.EffectType.COLD_RESIST] = load("res://resources/dialog/needs/cold_resist.tres").dialog_lines
+	dialog_config[IngredientStats.EffectType.CURE_POISON] = load("res://resources/dialog/needs/cure_poison.tres").dialog_lines
+	reaction_config[CustomerReaction.ReactionType.HAPPY] = load("res://resources/dialog/reactions/happy.tres").dialog_lines
+	reaction_config[CustomerReaction.ReactionType.UNHAPPY] = load("res://resources/dialog/reactions/unhappy.tres")
+	reaction_config[CustomerReaction.ReactionType.AVERAGE] = load("res://resources/dialog/reactions/average.tres")
+	var starter_dialog_resource = load("res://resources/dialog/special/StarterDialog.tres") as SpecialCustomerDialog
+	var out_of_ingredients_dialog_resource = load("res://resources/dialog/special/OutOfIngredients.tres") as SpecialCustomerDialog
+	starter_dialog = starter_dialog_resource.dialog_lines
+	out_of_ingredients_dialog = out_of_ingredients_dialog_resource.dialog_lines
 
 func add_ingredient_item_to_inventory(ingredient_item: IngredientItem):
 	var does_ing_exist_in_inventory := false

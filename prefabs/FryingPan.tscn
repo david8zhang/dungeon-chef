@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dce1cvgbs2r0s"]
 
-[ext_resource type="Script" uid="uid://dlyu2c31bcp7p" path="res://scripts/FryingPan.gd" id="1_o07a2"]
+[ext_resource type="Script" path="res://scripts/FryingPan.gd" id="1_o07a2"]
 [ext_resource type="Texture2D" uid="uid://cxyml6floj846" path="res://assets/kitchen/frying_pan_1.png" id="2_jaycd"]
 [ext_resource type="PackedScene" uid="uid://dm31a6ttjsdms" path="res://prefabs/PanIngredient.tscn" id="3_jaycd"]
 

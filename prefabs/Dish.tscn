@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cuuwjvrs81j4c"]
 
-[ext_resource type="Script" uid="uid://bd3atlnixdi6x" path="res://scripts/Dish.gd" id="1_hx4hv"]
+[ext_resource type="Script" path="res://scripts/Dish.gd" id="1_hx4hv"]
 [ext_resource type="Texture2D" uid="uid://bloie5gbm81es" path="res://assets/restaurant/serving_plate.png" id="2_hx4hv"]
 [ext_resource type="Texture2D" uid="uid://bual2xdriwnvy" path="res://assets/ingredients/sprouts_fried.png" id="3_v50j1"]
 [ext_resource type="Texture2D" uid="uid://d1pwdoykijyn1" path="res://assets/ingredients/red_mushrooms_boiled.png" id="4_hx4hv"]

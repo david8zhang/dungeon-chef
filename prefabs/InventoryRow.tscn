@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://xlmyyax8n246"]
 
-[ext_resource type="Script" uid="uid://d3gddyw0jlrsj" path="res://scripts/InventoryRow.gd" id="1_pxgnl"]
+[ext_resource type="Script" path="res://scripts/InventoryRow.gd" id="1_pxgnl"]
 [ext_resource type="Texture2D" uid="uid://0fl4vb088lou" path="res://assets/ingredients/boar_chop_fried.png" id="2_pxgnl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0lyg"]

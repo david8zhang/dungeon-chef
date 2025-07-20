@@ -26,6 +26,7 @@ var customer_dialog_lines = []
 var customer_reaction = null
 var curr_dialog_index = 0
 var curr_state := CustomerState.ORDERING
+var all_ingredient_stats
 
 func _ready() -> void:
 	dialog_config = PlayerVariables.dialog_config

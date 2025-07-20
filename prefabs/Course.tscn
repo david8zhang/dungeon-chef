@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgqdccr1n386k"]
 
-[ext_resource type="Script" uid="uid://b2k4lrm8kixwo" path="res://scripts/Course.gd" id="1_e486j"]
+[ext_resource type="Script" path="res://scripts/Course.gd" id="1_e486j"]
 [ext_resource type="Texture2D" uid="uid://0fl4vb088lou" path="res://assets/ingredients/boar_chop_fried.png" id="2_e486j"]
 
 [node name="Course" type="PanelContainer"]

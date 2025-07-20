@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CustomerReaction" load_steps=2 format=3 uid="uid://bebjx8wwhptvt"]
 
-[ext_resource type="Script" uid="uid://ctgnpafkc487h" path="res://scripts/CustomerReaction.gd" id="1_13god"]
+[ext_resource type="Script" path="res://scripts/CustomerReaction.gd" id="1_13god"]
 
 [resource]
 script = ExtResource("1_13god")

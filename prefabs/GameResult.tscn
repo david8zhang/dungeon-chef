@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://chy7upl30otxo"]
 
-[ext_resource type="Script" uid="uid://bu6lq3du684f8" path="res://scripts/GameResult.gd" id="1_bqjmw"]
+[ext_resource type="Script" path="res://scripts/GameResult.gd" id="1_bqjmw"]
 [ext_resource type="PackedScene" uid="uid://xlmyyax8n246" path="res://prefabs/InventoryRow.tscn" id="2_usv7m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycsjk"]

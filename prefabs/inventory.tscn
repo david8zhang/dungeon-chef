@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvct50b2wta71"]
 
-[ext_resource type="Script" uid="uid://42khiy12xiwr" path="res://scripts/Inventory.gd" id="1_m3lv8"]
+[ext_resource type="Script" path="res://scripts/Inventory.gd" id="1_m3lv8"]
 [ext_resource type="PackedScene" uid="uid://xlmyyax8n246" path="res://prefabs/InventoryRow.tscn" id="2_cashb"]
 
 [node name="Inventory" type="PanelContainer"]
